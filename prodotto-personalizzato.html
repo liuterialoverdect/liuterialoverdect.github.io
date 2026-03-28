@@ -9,54 +9,61 @@
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="chi.html">Chi siamo</a>
-    <a href="strumenti.html">Strumenti</a>
-    <a href="contatti.html">Contatti</a>
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria Lo Verde</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </div>
 </nav>
 
 <div class="page-hero">
-    <h1>Progetto Personalizzato</h1>
-    <p>Uno strumento costruito attorno al musicista, alle sue esigenze e alla sua idea di suono.</p>
+    <div class="container">
+        <h1>Progetto Personalizzato</h1>
+        <p>Uno strumento costruito attorno al musicista, alle sue esigenze tecniche ed estetiche.</p>
+    </div>
 </div>
 
-<div class="content">
-    <div class="product-layout">
-        <div class="product-gallery">
-            <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7" alt="Strumento personalizzato">
+<section>
+    <div class="container product-layout">
+        <div>
+            <img class="product-main-image" src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1400&q=80" alt="Strumento personalizzato">
             <div class="thumbnail-row">
-                <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a" alt="Dettaglio finiture">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" alt="Dettaglio lavorazione">
-                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1" alt="Dettaglio materiale">
+                <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=800&q=80" alt="Dettaglio 1">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Dettaglio 2">
+                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80" alt="Dettaglio 3">
             </div>
         </div>
 
-        <div class="product-info">
+        <div class="product-panel">
             <h2>Strumento su misura</h2>
             <p>
                 Il progetto personalizzato nasce da un confronto diretto con il musicista.
                 Forma, legni, risposta sonora, comodità del manico, dettagli estetici e finiture
-                vengono definiti insieme.
+                vengono definiti insieme per arrivare a uno strumento davvero coerente con chi lo userà.
             </p>
 
             <div class="price">Da € 1.900</div>
 
-            <div class="product-meta">
-                <p><strong>Disponibilità:</strong> Solo su commissione</p>
-                <p><strong>Tempi di realizzazione:</strong> Variabili in base al progetto</p>
-                <p><strong>Configurazione:</strong> Personalizzata</p>
-                <p><strong>Categoria:</strong> Strumento su misura</p>
+            <div class="meta-list">
+                <div class="meta-item"><strong>Disponibilità:</strong> Solo su commissione</div>
+                <div class="meta-item"><strong>Tempi di realizzazione:</strong> Variabili in base al progetto</div>
+                <div class="meta-item"><strong>Configurazione:</strong> Personalizzata</div>
+                <div class="meta-item"><strong>Categoria:</strong> Strumento su misura</div>
             </div>
 
             <a href="contatti.html" class="btn">Parla del tuo progetto</a>
         </div>
     </div>
-</div>
+</section>
 
 <section>
-    <h2>Cosa possiamo definire insieme</h2>
-    <div class="two-columns">
+    <div class="container spec-grid">
         <div class="list-box">
+            <h3>Possibili definizioni</h3>
             <ul>
                 <li>Tipologia di strumento</li>
                 <li>Scelta dei legni</li>
@@ -66,18 +73,21 @@
         </div>
 
         <div class="list-box">
+            <h3>Confronto progettuale</h3>
             <ul>
                 <li>Impostazione sonora desiderata</li>
                 <li>Finiture e trattamento superficiale</li>
                 <li>Elementi tecnici su richiesta</li>
-                <li>Confronto diretto durante la progettazione</li>
+                <li>Dialogo diretto durante la progettazione</li>
             </ul>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Liuteria Lo Verde</p>
+    <div class="footer-inner">
+        <p>&copy; 2026 Liuteria Lo Verde</p>
+    </div>
 </footer>
 
 </body>
