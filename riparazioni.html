@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riparazioni - Liuteria Lo Verde</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="chi.html">Chi siamo</a>
+    <a href="strumenti.html">Strumenti</a>
+    <a href="contatti.html">Contatti</a>
+</nav>
+
+<div class="page-hero">
+    <h1>Riparazioni</h1>
+    <p>Raccontaci il problema del tuo strumento e inviaci tutte le informazioni utili per una prima valutazione.</p>
+</div>
+
+<div class="content">
+    <div class="two-columns">
+        <div>
+            <h2>Interventi e restauro</h2>
+            <p>
+                Offriamo interventi di manutenzione, regolazione, riparazione strutturale e restauro.
+                Ogni strumento viene valutato con attenzione per capire l’entità del problema
+                e la soluzione più adatta.
+            </p>
+
+            <div class="list-box">
+                <h3>Esempi di interventi</h3>
+                <ul>
+                    <li>Riparazione di crepe e danni alla cassa</li>
+                    <li>Sostituzione o sistemazione di meccaniche e componenti</li>
+                    <li>Setup, action e regolazioni generali</li>
+                    <li>Interventi su manico, tastiera e ponte</li>
+                    <li>Restauro di strumenti datati o danneggiati</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h2>Richiedi una valutazione</h2>
+            <div class="form-box">
+                <form>
+                    <label for="nome">Nome e cognome</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono">
+
+                    <label for="strumento">Tipo di strumento</label>
+                    <select id="strumento" name="strumento" required>
+                        <option value="">Seleziona</option>
+                        <option>Chitarra classica</option>
+                        <option>Chitarra acustica</option>
+                        <option>Chitarra elettrica</option>
+                        <option>Basso</option>
+                        <option>Mandolino</option>
+                        <option>Altro</option>
+                    </select>
+
+                    <label for="marca">Marca o modello</label>
+                    <input type="text" id="marca" name="marca" placeholder="Es. Yamaha C40, strumento artigianale, ecc.">
+
+                    <label for="problema">Descrizione del problema</label>
+                    <textarea id="problema" name="problema" placeholder="Descrivi il danno o il problema dello strumento nel modo più preciso possibile." required></textarea>
+
+                    <label for="note">Informazioni aggiuntive</label>
+                    <textarea id="note" name="note" placeholder="Età dello strumento, urti subiti, riparazioni precedenti, urgenza, ecc."></textarea>
+
+                    <button type="submit">Invia richiesta di riparazione</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Liuteria Lo Verde</p>
+</footer>
+
+</body>
+</html>
