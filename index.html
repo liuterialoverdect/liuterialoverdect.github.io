@@ -1,579 +1,81 @@
-html {
-    scroll-behavior: smooth;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-:root {
-    --bg: #0d0d0d;
-    --bg-soft: #151515;
-    --bg-card: #1a1a1a;
-    --text: #ffffff;
-    --text-soft: #d6d6d6;
-    --muted: #aaaaaa;
-    --accent: #c89b3c;
-    --border: #2a2a2a;
-    --max-width: 1180px;
-    --radius: 18px;
-    --shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-a {
-    color: inherit;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.92);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.nav-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.brand {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    justify-content: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-header.hero {
-    min-height: 100vh;
-    padding: 120px 20px 60px;
-    background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.78)),
-        url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-}
-
-.hero-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    width: 100%;
-}
-
-.hero-box {
-    max-width: 760px;
-}
-
-.hero-tag {
-    display: inline-block;
-    padding: 8px 14px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 999px;
-    background: rgba(255,255,255,0.04);
-    color: var(--text-soft);
-    font-size: 14px;
-    margin-bottom: 18px;
-}
-
-.hero h1 {
-    font-size: 68px;
-    line-height: 1.05;
-    margin: 0 0 18px;
-}
-
-.hero p {
-    font-size: 20px;
-    line-height: 1.7;
-    color: var(--text-soft);
-    margin: 0 0 24px;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 28px;
-}
-
-.btn,
-.btn-secondary {
-    display: inline-block;
-    text-decoration: none;
-    padding: 14px 26px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-}
-
-.btn {
-    background: var(--accent);
-    color: #111;
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 1px solid rgba(255,255,255,0.16);
-}
-
-.btn:hover,
-.btn-secondary:hover {
-    transform: translateY(-2px);
-    opacity: 0.96;
-}
-
-main {
-    overflow: hidden;
-}
-
-section {
-    padding: 90px 20px;
-}
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.section-header {
-    max-width: 760px;
-    margin-bottom: 38px;
-}
-
-.section-header.center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.section-kicker {
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.section-header h2 {
-    font-size: 40px;
-    margin: 0 0 14px;
-}
-
-.section-header p {
-    margin: 0;
-    color: var(--text-soft);
-    line-height: 1.7;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    height: 100%;
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 36px rgba(0,0,0,0.28);
-}
-
-.card-image {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 22px;
-}
-
-.card-body h3 {
-    margin: 0 0 12px;
-    font-size: 22px;
-}
-
-.card-body p {
-    margin: 0;
-    color: var(--text-soft);
-    line-height: 1.7;
-}
-
-.feature-box,
-.list-box,
-.contact-box,
-.stat-box {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    box-shadow: var(--shadow);
-    height: 100%;
-}
-
-.feature-box h3,
-.list-box h3,
-.contact-box h3,
-.stat-box h3 {
-    margin-top: 0;
-    margin-bottom: 14px;
-    font-size: 22px;
-}
-
-.feature-box p,
-.contact-box p,
-.stat-box p {
-    margin: 0;
-    color: var(--text-soft);
-    line-height: 1.7;
-}
-
-.list-box ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.list-box li {
-    margin-bottom: 12px;
-    color: var(--text-soft);
-    line-height: 1.7;
-}
-
-.split-layout {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 28px;
-    align-items: center;
-}
-
-.split-image {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.page-hero {
-    padding: 150px 20px 70px;
-    background: linear-gradient(180deg, #111 0%, #151515 100%);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.page-hero .container {
-    max-width: 900px;
-    text-align: center;
-}
-
-.page-hero h1 {
-    margin: 0 0 14px;
-    font-size: 52px;
-}
-
-.page-hero p {
-    margin: 0;
-    color: var(--text-soft);
-    line-height: 1.7;
-    font-size: 18px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-}
-
-.product-layout {
-    display: grid;
-    grid-template-columns: 1fr 0.95fr;
-    gap: 34px;
-    align-items: start;
-}
-
-.product-main-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.thumbnail-row {
-    margin-top: 16px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-}
-
-.thumbnail-row img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.product-panel {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 30px;
-    box-shadow: var(--shadow);
-}
-
-.product-panel h2 {
-    text-align: left;
-    font-size: 34px;
-    margin: 0 0 16px;
-}
-
-.product-panel p {
-    color: var(--text-soft);
-    line-height: 1.7;
-}
-
-.price {
-    font-size: 36px;
-    color: var(--accent);
-    font-weight: bold;
-    margin: 22px 0;
-}
-
-.meta-list {
-    display: grid;
-    gap: 10px;
-    margin: 24px 0;
-}
-
-.meta-item {
-    background: #111;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    color: var(--text-soft);
-}
-
-.spec-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.form-box {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    box-shadow: var(--shadow);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    background: #101010;
-    color: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 14px;
-    font-size: 15px;
-    margin-bottom: 18px;
-}
-
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.info-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.info-box {
-    background: #121212;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px;
-    text-align: center;
-}
-
-.info-box h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-}
-
-.info-box p {
-    margin: 0;
-    color: var(--text-soft);
-    line-height: 1.6;
-}
-
-footer {
-    background: #080808;
-    padding: 30px 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    text-align: center;
-    color: var(--muted);
-}
-
-@media (max-width: 1024px) {
-    .grid-3,
-    .gallery-grid,
-    .info-strip {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .split-layout,
-    .product-layout,
-    .grid-2,
-    .spec-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .split-image {
-        height: 340px;
-    }
-
-    .product-main-image {
-        height: 420px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        gap: 12px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .page-hero h1 {
-        font-size: 38px;
-    }
-
-    .section-header h2 {
-        font-size: 32px;
-    }
-
-    .grid-3,
-    .gallery-grid,
-    .info-strip,
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .card-image {
-        height: 220px;
-    }
-
-    .gallery-grid img {
-        height: 220px;
-    }
-
-    .product-main-image {
-        height: 320px;
-    }
-
-    .thumbnail-row {
-        grid-template-columns: 1fr;
-    }
-
-    .thumbnail-row img {
-        height: 180px;
-    }
-}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liuteria Lo Verde</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria Lo Verde</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="storia.html">La nostra storia</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </div>
+</nav>
+<header class="hero">
+    <div class="container hero-inner">
+        <div class="kicker">Liuteria artigianale siciliana</div>
+        <h1>Strumenti costruiti con carattere, misura e identità sonora.</h1>
+        <p>Liuteria Lo Verde è un laboratorio che unisce gusto artigianale, attenzione al dettaglio e ascolto del musicista. Costruzione, riparazione e personalizzazione sono il centro del nostro lavoro.</p>
+        <div class="hero-actions">
+            <a href="storia.html" class="btn">Scopri la nostra storia</a>
+            <a href="strumenti.html" class="btn-ghost">Entra nella vetrina</a>
+        </div>
+    </div>
+</header>
+<main>
+    <section>
+        <div class="container">
+            <div class="section-head center">
+                <div class="eyebrow">Visione</div>
+                <h2>Una liuteria che parte dal mestiere e arriva al musicista.</h2>
+                <p>Ogni strumento nasce da una scelta precisa dei materiali, da una lavorazione attenta e da un confronto concreto con chi lo suonerà. Il risultato deve essere bello, comodo, equilibrato e musicalmente vivo.</p>
+            </div>
+            <div class="info-strip">
+                <div class="info-box"><h3>Costruzione</h3><p>Progetti artigianali seguiti con cura, dal legno fino alla regolazione finale.</p></div>
+                <div class="info-box"><h3>Riparazione</h3><p>Interventi tecnici e restauri per riportare lo strumento alla sua piena funzionalità.</p></div>
+                <div class="info-box"><h3>Personalizzazione</h3><p>Soluzioni su misura per chi cerca uno strumento coerente con il proprio modo di suonare.</p></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="eyebrow">Servizi</div>
+                <h2>Le aree principali del laboratorio</h2>
+                <p>Ogni area ha una pagina dedicata ed è già pronta per essere popolata con contenuti, immagini e dettagli reali.</p>
+            </div>
+            <div class="grid-3">
+                <a href="costruzioni.html" class="card-link"><article class="card"><img src="images/home-costruzione.jpg" alt="Costruzione strumenti"><div class="card-body"><h3>Costruzione</h3><p>Strumenti realizzati a mano con attenzione a resa sonora, materiali, proporzioni e comfort.</p></div></article></a>
+                <a href="riparazioni.html" class="card-link"><article class="card"><img src="images/home-riparazioni.jpg" alt="Riparazioni strumenti"><div class="card-body"><h3>Riparazioni</h3><p>Setup, manutenzione, restauro e interventi strutturali su strumenti da recuperare o ottimizzare.</p></div></article></a>
+                <a href="personalizzazione.html" class="card-link"><article class="card"><img src="images/home-personalizzazione.jpg" alt="Personalizzazione strumenti"><div class="card-body"><h3>Personalizzazione</h3><p>Progetti su misura costruiti attorno a esigenze sonore, estetiche e tecniche specifiche.</p></div></article></a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container split">
+            <div>
+                <div class="section-head">
+                    <div class="eyebrow">Sicilia</div>
+                    <h2>Un laboratorio che porta con sé il valore del lavoro fatto bene.</h2>
+                    <p>Essere siciliani per noi non è solo una provenienza geografica: è un modo di dare peso alla mano, al tempo, ai materiali e all’identità delle cose costruite bene.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="feature"><h3>Dettaglio</h3><p>Il dettaglio non è un’aggiunta: è parte del risultato finale.</p></div>
+                    <div class="feature"><h3>Presenza</h3><p>Ogni strumento deve avere una voce riconoscibile e una sua dignità estetica.</p></div>
+                </div>
+            </div>
+            <div><img src="images/hero.jpg" alt="Dettaglio chitarra artigianale"></div>
+        </div>
+    </section>
+</main>
+<footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+</body>
+</html>
