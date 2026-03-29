@@ -5,6 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La nostra storia - Liuteria Lo Verde</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .story-page {
+            padding-top: 30px;
+        }
+
+        .story-main {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .story-main-text,
+        .story-main-side,
+        .family-lineage,
+        .story-values {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(200,155,60,0.04));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 22px;
+            box-shadow: 0 16px 34px rgba(0,0,0,0.20);
+        }
+
+        .story-main-text,
+        .story-main-side,
+        .family-lineage,
+        .story-values {
+            padding: 30px;
+        }
+
+        .story-main-text h2,
+        .story-main-side h2,
+        .family-lineage h2,
+        .story-values h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+
+        .story-main-text p,
+        .story-main-side p,
+        .family-lineage p,
+        .story-values p {
+            color: var(--text-soft);
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        .story-main-text p:last-child,
+        .story-main-side p:last-child,
+        .family-lineage p:last-child,
+        .story-values p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-accent {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .story-side-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 18px;
+        }
+
+        .genealogy {
+            display: grid;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .genealogy-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .genealogy-role {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .genealogy-item h3 {
+            margin: 0 0 8px;
+            font-size: 22px;
+        }
+
+        .genealogy-item p {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.75;
+        }
+
+        .story-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .story-value-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .story-value-card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .story-value-card p {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            .story-main,
+            .story-values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -24,128 +157,128 @@
 <div class="page-hero">
     <div class="container">
         <h1>La nostra storia</h1>
-        <p>Una storia familiare costruita nel tempo, tra mani, legno e suono.</p>
+        <p>Una famiglia, un laboratorio, una continuità costruita nel tempo.</p>
     </div>
 </div>
 
-<section>
+<section class="story-page">
     <div class="container">
-        <div class="section-header">
-            <div class="section-kicker">Racconto</div>
-            <h2>Una tradizione che nasce dal lavoro vero</h2>
-            <p>
-                La Liuteria Lo Verde nasce a Catania, in Sicilia, da una realtà concreta:
-                il lavoro quotidiano di Santo Lo Verde, fondatore del laboratorio.
-                Non nasce come progetto commerciale, ma come mestiere.
-                Un mestiere imparato con il tempo, costruito con le mani e portato avanti
-                con una conoscenza reale dello strumento.
-            </p>
+        <div class="story-main">
 
-            <p>
-                Fin dall’inizio, la liuteria Lo Verde si distingue per un approccio diretto:
-                niente produzione in serie, niente standardizzazione.
-                Ogni strumento è il risultato di una scelta,
-                ogni intervento nasce da una valutazione reale.
-            </p>
+            <div class="story-main-text">
+                <div class="section-kicker">Origine</div>
+                <h2>Una storia che parte dal laboratorio</h2>
 
-            <p>
-                Nel tempo, il laboratorio non è rimasto fermo,
-                ma si è trasformato senza perdere la propria identità.
-                Il passaggio da Santo Lo Verde a Davide Lo Verde non è stato
-                una semplice successione, ma una continuità vera del mestiere.
-            </p>
+                <p>
+                    La <span class="story-accent">Liuteria Lo Verde</span> nasce da una tradizione familiare
+                    costruita con tempo, manualità ed esperienza. Alla base di questa storia c’è
+                    <span class="story-accent">Santo Lo Verde</span>, fondatore del laboratorio e figura da cui prende forma
+                    un mestiere trasmesso con serietà e continuità.
+                </p>
 
-            <p>
-                Davide ha portato avanti il lavoro mantenendo lo stesso approccio:
-                attenzione, manualità, responsabilità.
-                La liuteria è rimasta una realtà familiare,
-                dove il valore non è nella quantità prodotta,
-                ma nella qualità di ciò che esce dal laboratorio.
-            </p>
+                <p>
+                    Nel nostro caso, la liuteria non è mai stata qualcosa di astratto o distante:
+                    è sempre stata un lavoro vero, quotidiano, fatto di strumenti, riparazioni,
+                    legni, mani e decisioni concrete. Non una produzione impersonale,
+                    ma un rapporto diretto con ciò che si costruisce.
+                </p>
 
-            <p>
-                Oggi la storia continua con la nuova generazione:
-                Fabrizio Lo Verde e Maurizio Lo Verde.
-                Il loro ruolo non è solo quello di continuare,
-                ma di evolvere la liuteria senza snaturarla.
-            </p>
+                <p>
+                    Con <span class="story-accent">Davide Lo Verde</span>, questo percorso non si interrompe:
+                    si consolida. Il laboratorio continua a vivere mantenendo la stessa natura artigianale,
+                    la stessa attenzione al dettaglio e la stessa idea di fondo:
+                    ogni strumento deve avere una sua identità, non essere soltanto un oggetto ben fatto.
+                </p>
 
-            <p>
-                Questo significa portare una nuova visione:
-                più attenzione alla comunicazione,
-                più consapevolezza dell’immagine,
-                ma sempre con lo stesso rispetto per il lavoro artigianale.
-            </p>
-
-            <p>
-                La Liuteria Lo Verde oggi è questo:
-                una famiglia che lavora insieme,
-                un mestiere che non è stato perso,
-                e una direzione che guarda avanti senza dimenticare da dove viene.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="section-header center">
-            <div class="section-kicker">Famiglia</div>
-            <h2>Albero genealogico</h2>
-        </div>
-
-        <div class="grid-3">
-            <div class="story-box">
-                <h3>Santo Lo Verde</h3>
-                <p>Fondatore della liuteria e origine della tradizione familiare.</p>
+                <p>
+                    Oggi questa storia prosegue con la nuova generazione,
+                    <span class="story-accent">Fabrizio Lo Verde</span> e
+                    <span class="story-accent">Maurizio Lo Verde</span>,
+                    che raccolgono l’eredità del laboratorio e la portano avanti con uno sguardo più attuale,
+                    senza perdere la sostanza di ciò che rende questa liuteria davvero vostra.
+                </p>
             </div>
 
-            <div class="story-box">
-                <h3>Davide Lo Verde</h3>
-                <p>Continuazione del laboratorio e trasmissione del mestiere.</p>
-            </div>
+            <div class="story-main-side">
+                <img class="story-side-image" src="images/storia-main.jpg" alt="Liuteria Lo Verde">
 
-            <div class="story-box">
-                <h3>Fabrizio Lo Verde · Maurizio Lo Verde</h3>
-                <p>Nuova generazione che porta avanti e sviluppa la liuteria.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container split-layout">
-        <div>
-            <img class="split-image" src="images/storia-main.jpg" alt="Liuteria Lo Verde">
-        </div>
-
-        <div>
-            <div class="section-header">
                 <div class="section-kicker">Identità</div>
-                <h2>Una liuteria siciliana autentica</h2>
+                <h2>Una liuteria siciliana</h2>
+
                 <p>
-                    Essere una liuteria siciliana significa lavorare senza artifici.
-                    Significa costruire con quello che si ha, con quello che si sa fare,
-                    e con il rispetto per il tempo necessario.
+                    Essere una liuteria siciliana, per noi, significa lavorare con concretezza,
+                    dare peso al tempo necessario e mantenere un legame forte con il valore del mestiere.
                 </p>
 
                 <p>
-                    Non seguiamo una produzione standardizzata.
-                    Non cerchiamo numeri.
-                    Cerchiamo strumenti che funzionano davvero,
-                    nelle mani di chi li suona.
+                    Non inseguiamo quantità o standard freddi.
+                    Preferiamo un lavoro che abbia presenza, riconoscibilità e carattere.
                 </p>
             </div>
 
-            <div class="list-box">
-                <h3>Ci definiscono</h3>
-                <ul>
-                    <li>Tradizione familiare reale</li>
-                    <li>Trasmissione diretta del mestiere</li>
-                    <li>Lavorazione artigianale</li>
-                    <li>Identità sonora propria</li>
-                    <li>Legame con la Sicilia</li>
-                </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="family-lineage">
+            <div class="section-kicker">Famiglia</div>
+            <h2>Continuità generazionale</h2>
+            <p>
+                La forza della Liuteria Lo Verde sta anche qui:
+                nella capacità di mantenere una linea familiare chiara,
+                dove il mestiere non viene solo conservato, ma portato avanti.
+            </p>
+
+            <div class="genealogy">
+                <div class="genealogy-item">
+                    <span class="genealogy-role">Fondatore</span>
+                    <h3>Santo Lo Verde</h3>
+                    <p>Origine del laboratorio e della tradizione familiare.</p>
+                </div>
+
+                <div class="genealogy-item">
+                    <span class="genealogy-role">Continuità</span>
+                    <h3>Davide Lo Verde</h3>
+                    <p>Prosecuzione del mestiere e consolidamento dell’identità della liuteria.</p>
+                </div>
+
+                <div class="genealogy-item">
+                    <span class="genealogy-role">Nuova generazione</span>
+                    <h3>Fabrizio Lo Verde · Maurizio Lo Verde</h3>
+                    <p>Presente e futuro del laboratorio, tra continuità e nuova visione.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="story-values">
+            <div class="section-kicker">Valori</div>
+            <h2>Cosa resta al centro</h2>
+            <p>
+                La storia conta solo se continua a vivere nel modo in cui si lavora.
+                Per questo ci sono alcune cose che restano centrali.
+            </p>
+
+            <div class="story-values-grid">
+                <div class="story-value-card">
+                    <h3>Artigianalità</h3>
+                    <p>Ogni lavoro viene affrontato con attenzione reale, senza automatismi inutili.</p>
+                </div>
+
+                <div class="story-value-card">
+                    <h3>Continuità</h3>
+                    <p>Il mestiere passa di generazione in generazione senza perdere identità.</p>
+                </div>
+
+                <div class="story-value-card">
+                    <h3>Carattere</h3>
+                    <p>Uno strumento deve avere presenza, equilibrio e una voce riconoscibile.</p>
+                </div>
             </div>
         </div>
     </div>
