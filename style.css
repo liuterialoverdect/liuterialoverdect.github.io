@@ -1300,7 +1300,10 @@ footer {
     .hero p {
         font-size: 18px;
     }
-
+    .page-hero .container {
+    margin: 0 auto;
+    text-align: center;
+}
     .page-hero h1 {
         font-size: 40px;
     }
