@@ -96,6 +96,8 @@ nav {
 .container {
     max-width: var(--max);
     margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .hero-inner {
@@ -139,12 +141,13 @@ nav {
 
 .btn,
 .btn-ghost,
-.btn-small {
+.btn-small,
+.btn-secondary {
     display: inline-block;
     text-decoration: none;
     font-weight: 800;
     border-radius: 12px;
-    transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
 .btn {
@@ -167,9 +170,18 @@ nav {
     font-size: 14px;
 }
 
+.btn-secondary {
+    padding: 12px 18px;
+    border: 1px solid rgba(199, 162, 87, 0.35);
+    background: rgba(199, 162, 87, 0.08);
+    color: var(--accent);
+    font-size: 14px;
+}
+
 .btn:hover,
 .btn-ghost:hover,
-.btn-small:hover {
+.btn-small:hover,
+.btn-secondary:hover {
     transform: translateY(-2px);
     opacity: 0.96;
 }
@@ -425,26 +437,115 @@ section {
     font-weight: 800;
 }
 
+/* PAGINA STRUMENTI */
+.shop-section {
+    padding-top: 50px;
+}
+
+.shop-topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.shop-topbar-left h2 {
+    margin: 0 0 8px;
+    font-size: 34px;
+}
+
+.shop-topbar-left p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+.shop-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.shop-tag {
+    background: rgba(199, 162, 87, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(199, 162, 87, 0.26);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.shop-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.shop-sidebar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(199, 162, 87, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    position: sticky;
+    top: 100px;
+}
+
+.shop-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 22px;
+}
+
+.shop-sidebar ul {
+    margin: 0 0 18px;
+    padding-left: 18px;
+}
+
+.shop-sidebar li {
+    margin-bottom: 10px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.shop-side-note {
+    color: #9f9fa6;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.shop-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
 .product-card {
     overflow: hidden;
     padding: 0;
 }
 
+.product-card-image,
 .product-card img {
     width: 100%;
-    height: 280px;
+    height: 270px;
     object-fit: cover;
 }
 
 .product-card-content {
-    padding: 24px;
+    padding: 22px;
 }
 
 .product-card-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 14px;
+    align-items: flex-start;
     margin-bottom: 12px;
 }
 
@@ -466,20 +567,28 @@ section {
     line-height: 1.75;
 }
 
+.product-card-meta,
 .meta-chips {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 18px;
 }
 
+.product-card-meta span,
 .meta-chips span {
-    padding: 8px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #111214;
-    color: var(--muted);
     font-size: 13px;
+    color: var(--muted);
+    background: #111214;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 10px;
+}
+
+.product-card-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .product-layout {
@@ -606,7 +715,8 @@ footer {
 
     .grid-2,
     .split,
-    .product-layout {
+    .product-layout,
+    .shop-layout {
         grid-template-columns: 1fr;
     }
 
@@ -616,6 +726,10 @@ footer {
 
     .product-main {
         height: 430px;
+    }
+
+    .shop-sidebar {
+        position: static;
     }
 }
 
@@ -651,12 +765,14 @@ footer {
     .shop-grid,
     .info-strip,
     .stats,
-    .form-row {
+    .form-row,
+    .shop-products {
         grid-template-columns: 1fr;
     }
 
     .card img,
-    .product-card img {
+    .product-card img,
+    .product-card-image {
         height: 220px;
     }
 
