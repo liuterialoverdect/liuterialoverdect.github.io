@@ -71,6 +71,7 @@ nav {
     flex-wrap: wrap;
     gap: 18px;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .nav-links a {
@@ -78,6 +79,7 @@ nav {
     font-size: 15px;
     font-weight: bold;
     color: var(--text);
+    line-height: 1.2;
 }
 
 .nav-links a:hover,
@@ -592,7 +594,6 @@ footer {
     color: var(--muted);
 }
 
-/* TABLET */
 @media (max-width: 1024px) {
     .grid-3,
     .gallery-grid,
@@ -620,7 +621,6 @@ footer {
     }
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
     nav {
         position: static;
@@ -628,22 +628,34 @@ footer {
 
     .nav-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 14px;
         padding: 14px 16px;
     }
 
     .brand {
-        font-size: 17px;
+        font-size: 18px;
+        text-align: center;
     }
 
     .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
         width: 100%;
-        gap: 10px 14px;
-        justify-content: flex-start;
     }
 
     .nav-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        text-align: center;
         font-size: 14px;
+        padding: 10px 8px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
     }
 
     .hero {
@@ -681,7 +693,7 @@ footer {
     }
 
     .page-hero {
-        padding: 70px 16px 50px;
+        padding: 60px 16px 44px;
     }
 
     .page-hero h1 {
@@ -755,8 +767,11 @@ footer {
     }
 }
 
-/* SMALL MOBILE */
 @media (max-width: 480px) {
+    .nav-links {
+        grid-template-columns: 1fr;
+    }
+
     .hero h1 {
         font-size: 32px;
     }
