@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrello - Liuteria Lo Verde</title>
+    <meta name="description" content="Carrello demo frontend di Liuteria Lo Verde.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html" class="active">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Il tuo carrello</h1>
+            <p>
+                Una base pronta per la futura esperienza e-commerce del sito. Per ora è frontend, poi lo collegheremo a backend e pagamenti.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cart-layout">
+                <div class="cart-items">
+                    <h2 class="mt-0">Articoli selezionati</h2>
+                    <div id="cart-items-list"></div>
+                </div>
+
+                <aside class="cart-summary">
+                    <h2 class="mt-0">Riepilogo</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotale</span>
+                        <strong id="cart-subtotal">€ 0,00</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Spedizione</span>
+                        <strong id="cart-shipping">€ 0,00</strong>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Totale</span>
+                        <strong id="cart-total">€ 0,00</strong>
+                    </div>
+
+                    <div class="mt-30">
+                        <a href="login.html" class="btn">Procedi</a>
+                    </div>
+
+                    <p class="small-note mt-20">
+                        Il checkout reale arriverà quando parleremo di backend, database e pagamenti.
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Carrello demo frontend pronto per evolversi.
+        </div>
+        <div>
+            <a href="profilo.html">Profilo</a> ·
+            <a href="login.html">Area utente</a> ·
+            <a href="index.html">Home</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

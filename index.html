@@ -3,79 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liuteria Lo Verde</title>
+    <title>Liuteria Lo Verde - Chitarre artigianali, servizi e tradizione</title>
+    <meta name="description" content="Liuteria Lo Verde: strumenti artigianali, servizi di liuteria, guida alle chitarre e un'esperienza più moderna e personalizzata.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
+
+<header class="topbar">
     <div class="nav-inner">
-        <a href="index.html" class="brand">Liuteria Lo Verde</a>
-        <div class="nav-links">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <nav class="nav-links">
             <a href="index.html" class="active">Home</a>
-            <a href="chi.html">Chi siamo</a>
-            <a href="storia.html">La nostra storia</a>
-            <a href="strumenti.html">Strumenti</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
             <a href="contatti.html">Contatti</a>
-        </div>
-    </div>
-</nav>
-<header class="hero">
-    <div class="container hero-inner">
-        <div class="kicker">Liuteria artigianale siciliana</div>
-        <h1>Strumenti costruiti con carattere, misura e identità sonora.</h1>
-        <p>Liuteria Lo Verde è un laboratorio che unisce gusto artigianale, attenzione al dettaglio e ascolto del musicista. Costruzione, riparazione e personalizzazione sono il centro del nostro lavoro.</p>
-        <div class="hero-actions">
-            <a href="storia.html" class="btn">Scopri la nostra storia</a>
-            <a href="strumenti.html" class="btn-ghost">Entra nella vetrina</a>
-        </div>
+        </nav>
     </div>
 </header>
+
 <main>
-    <section>
+    <section class="hero">
         <div class="container">
-            <div class="section-head center">
-                <div class="eyebrow">Visione</div>
-                <h2>Una liuteria che parte dal mestiere e arriva al musicista.</h2>
-                <p>Ogni strumento nasce da una scelta precisa dei materiali, da una lavorazione attenta e da un confronto concreto con chi lo suonerà. Il risultato deve essere bello, comodo, equilibrato e musicalmente vivo.</p>
-            </div>
-            <div class="info-strip">
-                <div class="info-box"><h3>Costruzione</h3><p>Progetti artigianali seguiti con cura, dal legno fino alla regolazione finale.</p></div>
-                <div class="info-box"><h3>Riparazione</h3><p>Interventi tecnici e restauri per riportare lo strumento alla sua piena funzionalità.</p></div>
-                <div class="info-box"><h3>Personalizzazione</h3><p>Soluzioni su misura per chi cerca uno strumento coerente con il proprio modo di suonare.</p></div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Tradizione, identità, suono</span>
+                    <h1>Una liuteria con anima artigianale e visione moderna.</h1>
+                    <p>
+                        Liuteria Lo Verde unisce mano, esperienza e sensibilità nella costruzione, regolazione
+                        e cura degli strumenti. Il sito cresce per offrire non solo una vetrina, ma un'esperienza
+                        più completa: strumenti, servizi, guida alla scelta e area personale.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#strumenti-home" class="btn">Scopri gli strumenti</a>
+                        <a href="guida-chitarre.html" class="btn-outline">Guida alle chitarre</a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <strong>1979</strong>
+                            <span>Una storia di bottega, passione ed eredità artigianale.</span>
+                        </div>
+                        <div class="metric">
+                            <strong>Su misura</strong>
+                            <span>Setup, riparazioni, consulenza e strumenti pensati con attenzione.</span>
+                        </div>
+                        <div class="metric">
+                            <strong>Più valore</strong>
+                            <span>Area personale, carrello e percorso utente più completo.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="hero-card-image"></div>
+                    <div class="hero-card-panel">
+                        <div>
+                            <h3>Esperienza più premium</h3>
+                            <p>
+                                Un sito più elegante e autorevole, capace di raccontare davvero il mondo della liuteria.
+                            </p>
+                        </div>
+                        <a href="servizi.html" class="btn">Servizi</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <section>
+
+    <section class="section" id="strumenti-home">
         <div class="container">
-            <div class="section-head">
-                <div class="eyebrow">Servizi</div>
-                <h2>Le aree principali del laboratorio</h2>
-                <p>Ogni area ha una pagina dedicata ed è già pronta per essere popolata con contenuti, immagini e dettagli reali.</p>
+            <div class="section-title-wrap">
+                <span class="section-eyebrow">Selezione</span>
+                <h2 class="section-title">Strumenti e soluzioni pensati per chi cerca qualcosa di vero.</h2>
+                <p class="section-text">
+                    Questa è una base iniziale per il nuovo sito: gli strumenti possono essere acquistati,
+                    salvati nel carrello e in futuro collegati a un sistema più completo con account e ordini reali.
+                </p>
             </div>
+
             <div class="grid-3">
-                <a href="costruzioni.html" class="card-link"><article class="card"><img src="images\home-costruzione.jpg" alt="Costruzione strumenti"><div class="card-body"><h3>Costruzione</h3><p>Strumenti realizzati a mano con attenzione a resa sonora, materiali, proporzioni e comfort.</p></div></article></a>
-                <a href="riparazioni.html" class="card-link"><article class="card"><img src="images/home-riparazioni.jpg" alt="Riparazioni strumenti"><div class="card-body"><h3>Riparazioni</h3><p>Setup, manutenzione, restauro e interventi strutturali su strumenti da recuperare o ottimizzare.</p></div></article></a>
-                <a href="personalizzazione.html" class="card-link"><article class="card"><img src="images/home-personalizzazione.jpg" alt="Personalizzazione strumenti"><div class="card-body"><h3>Personalizzazione</h3><p>Progetti su misura costruiti attorno a esigenze sonore, estetiche e tecniche specifiche.</p></div></article></a>
+                <article class="card product-card">
+                    <div class="product-thumb">
+                        <img src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?auto=format&fit=crop&w=1200&q=80" alt="Chitarra classica artigianale">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Chitarra classica</span>
+                        <h3 class="product-title">Classica Studio Lo Verde</h3>
+                        <p>
+                            Una chitarra dal carattere caldo, pensata per studio, repertorio classico e sensibilità timbrica.
+                        </p>
+                        <div class="product-price">€ 890,00</div>
+                        <div class="product-actions">
+                            <button
+                                class="btn"
+                                data-add-to-cart
+                                data-id="classica-studio"
+                                data-name="Classica Studio Lo Verde"
+                                data-price="890"
+                                data-image="https://images.unsplash.com/photo-1514119412350-e174d90d280e?auto=format&fit=crop&w=1200&q=80"
+                                data-description="Chitarra classica da studio con timbro caldo e risposta equilibrata."
+                            >
+                                Aggiungi al carrello
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card product-card">
+                    <div class="product-thumb">
+                        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1200&q=80" alt="Chitarra acustica artigianale">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Chitarra acustica</span>
+                        <h3 class="product-title">Acustica Fingerstyle</h3>
+                        <p>
+                            Ideale per accompagnamento raffinato, arpeggi e dinamica. Pensata per chi cerca espressività.
+                        </p>
+                        <div class="product-price">€ 1.290,00</div>
+                        <div class="product-actions">
+                            <button
+                                class="btn"
+                                data-add-to-cart
+                                data-id="acustica-fingerstyle"
+                                data-name="Acustica Fingerstyle"
+                                data-price="1290"
+                                data-image="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1200&q=80"
+                                data-description="Acustica dal tocco sensibile, ideale per fingerstyle e accompagnamento."
+                            >
+                                Aggiungi al carrello
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card product-card">
+                    <div class="product-thumb">
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=1200&q=80" alt="Servizio setup chitarra">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Servizio</span>
+                        <h3 class="product-title">Setup completo</h3>
+                        <p>
+                            Regolazione action, controllo generale, ottimizzazione della suonabilità e comfort.
+                        </p>
+                        <div class="product-price">€ 90,00</div>
+                        <div class="product-actions">
+                            <button
+                                class="btn"
+                                data-add-to-cart
+                                data-id="setup-completo"
+                                data-name="Setup completo"
+                                data-price="90"
+                                data-image="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=1200&q=80"
+                                data-description="Servizio di setup e regolazione completa dello strumento."
+                            >
+                                Aggiungi al carrello
+                            </button>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
-    <section>
-        <div class="container split">
-            <div>
-                <div class="section-head">
-                    <div class="eyebrow">Sicilia</div>
-                    <h2>Un laboratorio che porta con sé il valore del lavoro fatto bene.</h2>
-                    <p>Essere siciliani per noi non è solo una provenienza geografica: è un modo di dare peso alla mano, al tempo, ai materiali e all’identità delle cose costruite bene.</p>
+
+    <section class="section">
+        <div class="container">
+            <div class="highlight-panel">
+                <div class="highlight-copy">
+                    <span class="section-eyebrow">Perché il sito è diverso</span>
+                    <h2 class="section-title">Non solo vendere: spiegare, accompagnare, personalizzare.</h2>
+                    <p class="section-text">
+                        Un sito di liuteria forte non deve sembrare freddo. Deve far percepire
+                        qualità, competenza e rapporto umano. Per questo la nuova struttura unisce
+                        area servizi, contenuti educativi, strumenti selezionati e area utente.
+                    </p>
+
+                    <div class="grid-2 mt-30">
+                        <div class="card feature-card">
+                            <h3>Guida alla scelta</h3>
+                            <p>
+                                Una pagina dedicata alle differenze tra classica, acustica, elettrica, materiali e utilizzi.
+                            </p>
+                        </div>
+                        <div class="card feature-card">
+                            <h3>Area personale</h3>
+                            <p>
+                                Login, profilo e carrello per costruire un percorso più moderno e più professionale.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-2">
-                    <div class="feature"><h3>Dettaglio</h3><p>Il dettaglio non è un’aggiunta: è parte del risultato finale.</p></div>
-                    <div class="feature"><h3>Presenza</h3><p>Ogni strumento deve avere una voce riconoscibile e una sua dignità estetica.</p></div>
+
+                <div class="highlight-visual"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-eyebrow">Servizi</span>
+                <h2 class="section-title">Più di una semplice vetrina.</h2>
+                <p class="section-text">
+                    Il laboratorio può essere raccontato anche attraverso i servizi: setup, restauro, manutenzione,
+                    consulenza e percorsi personalizzati per trovare lo strumento più adatto.
+                </p>
+            </div>
+
+            <div class="grid-4">
+                <div class="card feature-card">
+                    <h3>Setup professionale</h3>
+                    <p>Regolazione action, intonazione, comodità e risposta dello strumento.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Riparazioni</h3>
+                    <p>Interventi mirati per riportare lo strumento a un equilibrio tecnico e sonoro.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Restauro</h3>
+                    <p>Approccio attento all'identità dello strumento, con sensibilità artigianale.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Consulenza</h3>
+                    <p>Supporto nella scelta della chitarra giusta in base a studio, gusto e uso musicale.</p>
                 </div>
             </div>
-            <div><img src="images/hero.jpg" alt="Dettaglio chitarra artigianale"></div>
+        </div>
+    </section>
+
+    <section class="section-sm">
+        <div class="container">
+            <div class="cta-banner">
+                <div>
+                    <h2>Vuoi già vedere la parte utente?</h2>
+                    <p>
+                        Questa versione include una base pronta con login demo, profilo e carrello frontend.
+                        Più avanti potremo collegare tutto a database, ordini reali e pagamenti.
+                    </p>
+                </div>
+                <div>
+                    <a href="login.html" class="btn">Entra nell'area utente</a>
+                </div>
+            </div>
         </div>
     </section>
 </main>
-<footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Tradizione artigianale, strumenti, servizi e una nuova esperienza digitale.
+        </div>
+        <div>
+            <a href="guida-chitarre.html">Guida chitarre</a> ·
+            <a href="servizi.html">Servizi</a> ·
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

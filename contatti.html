@@ -4,138 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti - Liuteria Lo Verde</title>
+    <meta name="description" content="Contatta Liuteria Lo Verde per strumenti, servizi e consulenze.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
+<header class="topbar">
     <div class="nav-inner">
-        <a href="index.html" class="brand">Liuteria Lo Verde</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="chi.html">Chi siamo</a>
-            <a href="storia.html">La nostra storia</a>
-            <a href="strumenti.html">Strumenti</a>
-            <a href="contatti.html" class="active">Contatti</a>
-        </div>
-    </div>
-</nav>
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
 
-<header class="page-hero">
-    <div class="container">
-        <h1>Contatti</h1>
-        <p>
-            Per informazioni, richieste o commissioni personalizzate, compila il modulo qui sotto.
-        </p>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+            <a href="contatti.html" class="active">Contatti</a>
+        </nav>
     </div>
 </header>
 
-<main class="section">
-    <div class="container">
-        <div class="contact-grid">
-            <div class="contact-card">
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contatti</h1>
+            <p>
+                Per richieste, informazioni, consulenze e lavorazioni personalizzate.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="form-shell">
                 <h2>Scrivici</h2>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-row">
-                        <label for="nome">Nome e cognome</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="telefono">Telefono</label>
-                        <input type="tel" id="telefono" name="telefono">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="strumento">Strumento di interesse</label>
-                        <input type="text" id="strumento" name="strumento" placeholder="Es. chitarra classica, violino...">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="messaggio">Messaggio</label>
-                        <textarea id="messaggio" name="messaggio" rows="6" required></textarea>
-                    </div>
-
-                    <button type="submit" id="submit-btn">Invia messaggio</button>
-
-                    <p id="form-status" style="margin-top: 14px;"></p>
-                </form>
-            </div>
-
-            <div class="contact-card">
-                <h2>Liuteria Lo Verde</h2>
                 <p>
-                    Realizzazione, cura e attenzione per ogni strumento.
+                    Questa è una base visuale pronta. In seguito possiamo collegarla a Formspree, Supabase o backend personalizzato.
                 </p>
-                <p>
-                    Per richieste specifiche puoi usare il modulo di contatto:
-                    riceveremo direttamente il tuo messaggio nel database.
+
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input class="form-control" type="text" id="nome" placeholder="Il tuo nome">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" id="email" placeholder="nome@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="argomento">Argomento</label>
+                        <input class="form-control" type="text" id="argomento" placeholder="Richiesta, servizio, strumento, consulenza...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="messaggio">Messaggio</label>
+                        <textarea class="form-control" id="messaggio" placeholder="Scrivi qui il tuo messaggio"></textarea>
+                    </div>
+
+                    <button type="button" class="btn">Invia richiesta</button>
+                </form>
+
+                <p class="small-note mt-20">
+                    Inserisci qui poi i contatti reali: email, telefono, città, social e orari.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
-<script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Contatti e richieste personalizzate.
+        </div>
+        <div>
+            <a href="servizi.html">Servizi</a> ·
+            <a href="guida-chitarre.html">Guida chitarre</a> ·
+            <a href="index.html">Home</a>
+        </div>
+    </div>
+</footer>
 
-    const supabaseUrl = "https://gwnjdjvsjvvhsgrtitop.supabase.co";
-    const supabaseKey = "sb_publishable_ccmCgBXPoelvpNLmTErkUw_8taW9HCd";
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
-    const form = document.getElementById("contact-form");
-    const statusText = document.getElementById("form-status");
-    const submitBtn = document.getElementById("submit-btn");
-
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const nome = document.getElementById("nome").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const telefono = document.getElementById("telefono").value.trim();
-        const strumento = document.getElementById("strumento").value.trim();
-        const messaggio = document.getElementById("messaggio").value.trim();
-
-        if (!nome || !email || !messaggio) {
-            statusText.textContent = "Compila i campi obbligatori.";
-            return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Invio in corso...";
-        statusText.textContent = "";
-
-        const { error } = await supabase
-            .from("contact_requests")
-            .insert([
-                {
-                    nome: nome,
-                    email: email,
-                    telefono: telefono || null,
-                    strumento_interessato: strumento || null,
-                    messaggio: messaggio
-                }
-            ]);
-
-        if (error) {
-            console.error("Errore Supabase:", error);
-            statusText.textContent = "Errore nell'invio del messaggio. Riprova.";
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Invia messaggio";
-            return;
-        }
-
-        statusText.textContent = "Messaggio inviato con successo.";
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Invia messaggio";
-    });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo utente - Liuteria Lo Verde</title>
+    <meta name="description" content="Area personale demo di Liuteria Lo Verde.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html" class="active">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Profilo utente</h1>
+            <p>
+                Uno spazio personale da cui, più avanti, potrai gestire ordini, preferiti, richieste e lavori in corso.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="profile-layout">
+                <aside class="profile-sidebar">
+                    <div class="profile-avatar" id="profile-avatar">O</div>
+                    <h2 id="profile-name" class="mt-0">Ospite</h2>
+                    <div class="profile-meta">
+                        <div id="profile-email">Nessun account attivo</div>
+                    </div>
+
+                    <div class="mt-30">
+                        <a href="carrello.html" class="btn-outline">Vai al carrello</a>
+                    </div>
+
+                    <div class="mt-12">
+                        <button class="btn-ghost" onclick="logoutUser()">Esci</button>
+                    </div>
+                </aside>
+
+                <div class="profile-main">
+                    <h2 id="profile-greeting" class="mt-0">Benvenuto nell'area personale</h2>
+                    <p class="section-text">
+                        Questa area è una base frontend già pronta. In una seconda fase potremo aggiungere
+                        autenticazione vera, storico ordini, richieste personalizzate e dashboard cliente.
+                    </p>
+
+                    <div class="profile-boxes">
+                        <div class="info-box">
+                            <h4>Carrello attuale</h4>
+                            <p id="profile-cart-info">Nessun dato disponibile.</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4>Stato account</h4>
+                            <p>Versione demo locale, salvata nel browser.</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4>Funzioni future</h4>
+                            <p>Ordini, cronologia acquisti, richieste di lavorazione, preventivi e preferiti.</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4>Esperienza personalizzata</h4>
+                            <p>Un'area pensata per rendere il sito più moderno, professionale e umano.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Una base già pronta per l'evoluzione del sito.
+        </div>
+        <div>
+            <a href="login.html">Login</a> ·
+            <a href="carrello.html">Carrello</a> ·
+            <a href="guida-chitarre.html">Guida chitarre</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
