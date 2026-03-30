@@ -4,15 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi siamo - Liuteria Lo Verde</title>
+    <meta name="description" content="Scopri Liuteria Lo Verde: identità, storia dal 1979 e tradizione artigianale.">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .about-visual {
+            min-height: 380px;
+            border-radius: 26px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="brand">Liuteria Lo Verde</a><div class="nav-links"><a href="index.html">Home</a><a href="chi.html" class="active">Chi siamo</a><a href="storia.html">La nostra storia</a><a href="strumenti.html">Strumenti</a><a href="contatti.html">Contatti</a></div></div></nav>
-<div class="page-hero"><div class="container"><h1>Chi siamo</h1><p>Un laboratorio artigianale dove ogni strumento nasce da competenza, attenzione reale e una visione chiara del suono.</p></div></div>
-<section><div class="container split"><div><div class="section-head"><div class="eyebrow">Identità</div><h2>Una liuteria che lavora con criterio, non in serie.</h2><p>Liuteria Lo Verde è un laboratorio indipendente che si occupa di costruzione, riparazione e personalizzazione di strumenti. Il nostro approccio non è industriale: ogni lavoro viene seguito con attenzione, dalla prima scelta del materiale fino al risultato finale.</p></div><div class="grid-2"><div class="feature"><h3>Precisione</h3><p>Ogni fase della lavorazione viene controllata direttamente, senza compromessi sulla qualità.</p></div><div class="feature"><h3>Ascolto</h3><p>Il musicista non è un cliente qualsiasi: è parte del risultato finale.</p></div></div></div><div><img src="images/chi-laboratorio.jpg" alt="Laboratorio liuteria"></div></div></section>
-<section><div class="container"><div class="section-head center"><div class="eyebrow">Metodo</div><h2>Come lavoriamo</h2><p>Il nostro lavoro si basa su un equilibrio tra tecnica, esperienza e sensibilità.</p></div><div class="grid-3"><div class="feature"><h3>Materiali</h3><p>Selezioniamo legni e componenti in base al progetto, non per standard predefiniti.</p></div><div class="feature"><h3>Lavorazione</h3><p>Ogni passaggio viene seguito manualmente, mantenendo controllo e coerenza.</p></div><div class="feature"><h3>Risultato</h3><p>Uno strumento deve essere bello, suonare bene e funzionare davvero nelle mani di chi lo usa.</p></div></div></div></section>
-<section><div class="container"><div class="gallery-grid"><img src="images/chi-gallery-1.jpg" alt="Dettaglio strumento"><img src="images/chi-gallery-2.jpg" alt="Dettaglio lavorazione"><img src="images/chi-gallery-3.jpg" alt="Strumento finito"></div></div></section>
-<section><div class="container split"><div><img src="images/hero.jpg" alt="Strumento artigianale"></div><div><div class="section-head"><div class="eyebrow">Direzione</div><h2>Non costruiamo solo strumenti, costruiamo identità sonore.</h2><p>Ogni strumento ha un carattere. Il nostro obiettivo è far emergere quella voce, senza forzarla e senza standardizzarla.</p></div><div class="list-box"><h3>Il nostro obiettivo</h3><ul><li>Costruire strumenti con personalità</li><li>Offrire comfort reale al musicista</li><li>Mantenere qualità costante nel tempo</li><li>Creare un rapporto diretto con chi suona</li></ul></div></div></div></section>
-<footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="chi.html" class="active">Chi siamo</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="carrello.html">Carrello <span data-cart-count>0</span></a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Chi siamo</h1>
+        <p>
+            Una liuteria che mette al centro sensibilità artigianale, identità dello strumento e rapporto umano.
+        </p>
+    </div>
+</section>
+
+<!-- IDENTITÀ -->
+<section class="section">
+    <div class="container">
+        <div class="highlight-panel">
+
+            <div class="highlight-copy">
+                <span class="section-eyebrow">Identità</span>
+                <h2 class="section-title">Una liuteria fatta di attenzione, misura e rispetto per il suono.</h2>
+
+                <p class="section-text">
+                    Liuteria Lo Verde nasce da una visione precisa: uno strumento non è solo un oggetto,
+                    ma un equilibrio tra materia, mano, funzione e sensibilità musicale.
+                </p>
+
+                <p class="section-text mt-20">
+                    Ogni intervento — costruzione, regolazione, riparazione o restauro — richiede ascolto,
+                    esperienza e capacità di comprendere davvero le esigenze di chi suona.
+                </p>
+            </div>
+
+            <div class="about-visual">
+                <img src="images/storia-main.jpg" alt="Laboratorio Liuteria Lo Verde">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STORIA -->
+<section class="section">
+    <div class="container">
+        <div class="grid-2">
+
+            <article class="card">
+                <span class="section-eyebrow">Dal 1979</span>
+                <h2 class="section-title">Una storia artigianale che continua.</h2>
+
+                <p class="section-text">
+                    Liuteria Lo Verde è stata fondata nel <strong>1979</strong>.
+                    Da allora rappresenta un percorso costruito nel tempo,
+                    fatto di esperienza, pratica e conoscenza della materia.
+                </p>
+
+                <p class="section-text mt-20">
+                    Non è solo una data, ma una continuità reale: anni di lavoro,
+                    strumenti osservati, riparati, costruiti e vissuti.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="section-eyebrow">Eredità</span>
+                <h2 class="section-title">Una tradizione che non si interrompe.</h2>
+
+                <p class="section-text">
+                    Il valore della liuteria sta anche in ciò che trasmette:
+                    metodo, sensibilità e uno sguardo preciso sullo strumento.
+                </p>
+
+                <p class="section-text mt-20">
+                    Questa eredità continua oggi, mantenendo la stessa attenzione,
+                    ma con una presenza più moderna e accessibile anche online.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- VALORI -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title-wrap">
+            <span class="section-eyebrow">Valori</span>
+            <h2 class="section-title">Quello che definisce davvero il laboratorio.</h2>
+        </div>
+
+        <div class="grid-3">
+
+            <div class="card">
+                <h3>Artigianalità</h3>
+                <p>Ogni lavoro è fatto con attenzione reale, non in modo standardizzato.</p>
+            </div>
+
+            <div class="card">
+                <h3>Identità</h3>
+                <p>Ogni strumento ha una voce propria, che va rispettata e valorizzata.</p>
+            </div>
+
+            <div class="card">
+                <h3>Rapporto umano</h3>
+                <p>Dietro ogni richiesta c'è una persona, non solo un cliente.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm">
+    <div class="container">
+        <div class="cta-banner">
+
+            <div>
+                <h2>Vuoi vedere gli strumenti del laboratorio?</h2>
+                <p>
+                    Dalla storia nasce il presente della liuteria: strumenti, servizi e percorsi su misura.
+                </p>
+            </div>
+
+            <div>
+                <a href="strumenti.html" class="btn">Vai agli strumenti</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Tradizione artigianale dal 1979.
+        </div>
+        <div>
+            <a href="strumenti.html">Strumenti</a> ·
+            <a href="servizi.html">Servizi</a> ·
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

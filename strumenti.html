@@ -3,235 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strumenti - Liuteria Lo Verde</title>
+    <title>La nostra storia - Liuteria Lo Verde</title>
+    <meta name="description" content="La storia di Liuteria Lo Verde, fondata nel 1979, tra tradizione, eredità e continuità artigianale.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
+<header class="topbar">
     <div class="nav-inner">
-        <a href="index.html" class="brand">Liuteria Lo Verde</a>
-        <div class="nav-links">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="chi.html">Chi siamo</a>
-            <a href="storia.html">La nostra storia</a>
-            <a href="strumenti.html" class="active">Strumenti</a>
+            <a href="storia.html" class="active">La nostra storia</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>La nostra storia</h1>
+            <p>
+                Una storia che parte dal 1979 e continua come eredità artigianale, fatta di esperienza, continuità e identità.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="highlight-panel">
+                <div class="highlight-copy">
+                    <span class="section-eyebrow">Dal 1979</span>
+                    <h2 class="section-title">La liuteria come percorso, non come semplice attività.</h2>
+                    <p class="section-text">
+                        Liuteria Lo Verde è stata fondata nel <strong>1979</strong>. Da allora rappresenta un lavoro costruito nel tempo,
+                        alimentato da esperienza, dedizione e conoscenza della materia.
+                    </p>
+                    <p class="section-text mt-20">
+                        Non si tratta solo di una data, ma di un'eredità concreta: anni di pratica,
+                        osservazione e rapporto diretto con gli strumenti, con i materiali e con le persone che li suonano.
+                    </p>
+                </div>
+
+                <div class="highlight-visual"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-eyebrow">Eredità</span>
+                <h2 class="section-title">Una tradizione che continua.</h2>
+                <p class="section-text">
+                    Il valore di una bottega artigianale non sta solo in ciò che produce, ma in ciò che trasmette:
+                    metodo, sensibilità, rigore e continuità.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <article class="card feature-card">
+                    <h3>Esperienza</h3>
+                    <p>
+                        Ogni anno di lavoro aggiunge conoscenza reale: dei legni, delle strutture,
+                        delle regolazioni e del comportamento degli strumenti nel tempo.
+                    </p>
+                </article>
+
+                <article class="card feature-card">
+                    <h3>Continuità</h3>
+                    <p>
+                        La storia della liuteria non resta nel passato: continua attraverso il presente
+                        e nella capacità di rinnovarsi senza perdere identità.
+                    </p>
+                </article>
+
+                <article class="card feature-card">
+                    <h3>Memoria artigianale</h3>
+                    <p>
+                        Una bottega conserva non solo tecniche, ma anche uno sguardo: il modo in cui si ascolta,
+                        si osserva e si rispetta lo strumento.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <article class="card">
+                    <h3>Una storia che dà autorevolezza</h3>
+                    <p>
+                        Essere presenti dal 1979 significa portare con sé un patrimonio di credibilità.
+                        Per questo il sito vuole raccontare anche il tempo, non soltanto i prodotti o i servizi.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Il passato come base del futuro</h3>
+                    <p>
+                        La crescita digitale della liuteria non cancella la sua anima. Al contrario,
+                        la rafforza e la rende più chiara, accessibile e riconoscibile anche online.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-sm">
+        <div class="container">
+            <div class="cta-banner">
+                <div>
+                    <h2>Vuoi vedere gli strumenti e i servizi del laboratorio?</h2>
+                    <p>
+                        Dalla storia nasce il presente della liuteria: strumenti, interventi e percorsi su misura.
+                    </p>
+                </div>
+                <div>
+                    <a href="strumenti.html" class="btn">Vai agli strumenti</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>Liuteria Lo Verde</strong><br>
+            Fondata nel 1979, tra tradizione artigianale e continuità.
+        </div>
+        <div>
+            <a href="chi.html">Chi siamo</a> ·
+            <a href="strumenti.html">Strumenti</a> ·
             <a href="contatti.html">Contatti</a>
         </div>
     </div>
-</nav>
-
-<div class="page-hero">
-    <div class="container">
-        <h1>Strumenti</h1>
-        <p>
-            Ogni strumento nasce da una ricerca attenta di materiali, equilibrio e suono.
-            Non si tratta di prodotti in serie, ma di creazioni uniche, pensate per durare nel tempo
-            e accompagnare ogni musicista nella propria espressione.
-        </p>
-    </div>
-</div>
-
-<section class="shop-section">
-    <div class="container">
-
-        <div class="shop-topbar">
-            <div class="shop-topbar-left">
-                <h2>Vetrina strumenti</h2>
-                <p>
-                    Selezione di modelli artigianali, strumenti su richiesta e progetti personalizzati.
-                </p>
-            </div>
-
-            <div class="shop-tags">
-                <span class="shop-tag">Artigianale</span>
-                <span class="shop-tag">Su richiesta</span>
-                <span class="shop-tag">Personalizzabile</span>
-            </div>
-        </div>
-
-        <div class="shop-layout">
-
-            <aside class="shop-sidebar">
-                <h3>Panoramica</h3>
-                <ul>
-                    <li>Modelli classici e acustici</li>
-                    <li>Linee studio e concerto</li>
-                    <li>Progetti su misura</li>
-                    <li>Richiesta informazioni diretta</li>
-                </ul>
-
-                <p class="shop-side-note">
-                    Una selezione pensata per mostrare diverse tipologie di strumenti,
-                    lavorazioni su commissione e progetti personalizzati.
-                </p>
-            </aside>
-
-            <div class="shop-products">
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-classica.jpg" alt="Chitarra classica artigianale">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Chitarra Classica</h3>
-                            <div class="product-card-price">€ 1.490</div>
-                        </div>
-
-                        <p>
-                            Un modello equilibrato, caldo e comodo,
-                            pensato per repertorio classico, studio avanzato e uso continuativo.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Classica</span>
-                            <span>Su richiesta</span>
-                            <span>30-60 giorni</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="prodotto-chitarra-classica.html" class="btn-small">Apri scheda</a>
-                            <a href="contatti.html?strumento=Chitarra%20Classica" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-acustica.jpg" alt="Chitarra acustica artigianale">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Chitarra Acustica</h3>
-                            <div class="product-card-price">€ 1.790</div>
-                        </div>
-
-                        <p>
-                            Progettata per volume, definizione e versatilità,
-                            ideale per fingerstyle, accompagnamento e live.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Acustica</span>
-                            <span>Su richiesta</span>
-                            <span>45-75 giorni</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="prodotto-chitarra-acustica.html" class="btn-small">Apri scheda</a>
-                            <a href="contatti.html?strumento=Chitarra%20Acustica" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-custom.jpg" alt="Progetto personalizzato">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Progetto Personalizzato</h3>
-                            <div class="product-card-price">Da € 1.900</div>
-                        </div>
-
-                        <p>
-                            Uno strumento su misura costruito attorno alle esigenze tecniche,
-                            estetiche e sonore del musicista.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Su misura</span>
-                            <span>Commissione</span>
-                            <span>Tempi variabili</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="prodotto-personalizzato.html" class="btn-small">Apri scheda</a>
-                            <a href="contatti.html?strumento=Progetto%20Personalizzato" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-studio.jpg" alt="Modello studio">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Modello Studio</h3>
-                            <div class="product-card-price">€ 1.250</div>
-                        </div>
-
-                        <p>
-                            Una proposta più essenziale, pensata per chi cerca qualità artigianale
-                            con una fascia più accessibile.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Ingresso</span>
-                            <span>Classica</span>
-                            <span>Su richiesta</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="contatti.html?strumento=Modello%20Studio" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-concerto.jpg" alt="Modello concerto">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Modello Concerto</h3>
-                            <div class="product-card-price">€ 2.350</div>
-                        </div>
-
-                        <p>
-                            Una linea di fascia più alta, pensata per presenza sonora,
-                            risposta dinamica e maggiore ricerca timbrica.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Concerto</span>
-                            <span>Premium</span>
-                            <span>Su ordinazione</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="contatti.html?strumento=Modello%20Concerto" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card card">
-                    <img class="product-card-image" src="images/shop-speciale.jpg" alt="Serie speciale">
-                    <div class="product-card-content">
-                        <div class="product-card-top">
-                            <h3>Serie Speciale</h3>
-                            <div class="product-card-price">Prezzo su richiesta</div>
-                        </div>
-
-                        <p>
-                            Progetti particolari, varianti esclusive e lavori che nascono
-                            da una richiesta specifica del musicista.
-                        </p>
-
-                        <div class="product-card-meta">
-                            <span>Speciale</span>
-                            <span>Esclusivo</span>
-                            <span>Contatto diretto</span>
-                        </div>
-
-                        <div class="product-card-actions">
-                            <a href="contatti.html?strumento=Serie%20Speciale" class="btn-secondary">Chiedi info</a>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="footer-inner">
-        <p>&copy; 2026 Liuteria Lo Verde</p>
-    </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
