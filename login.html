@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area utente - Liuteria Lo Verde</title>
-    <meta name="description" content="Accedi all'area personale demo di Liuteria Lo Verde.">
+    <meta name="description" content="Accesso demo frontend per simulare un profilo cliente.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,46 +34,39 @@
 </header>
 
 <main>
-    <section class="page-hero">
+<section class="page-hero">
         <div class="container">
             <h1>Area utente</h1>
-            <p>
-                Questa è una versione demo frontend: più avanti la collegheremo ad autenticazione e database veri.
-            </p>
+            <p>Accesso demo frontend per simulare un profilo cliente e una piccola area personale.</p>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="form-shell">
-                <h2>Accedi o crea il tuo profilo demo</h2>
+            <div class="form-shell reveal">
+                <h2>Accedi</h2>
                 <p>
-                    Salviamo i dati solo nel browser per simulare la futura area personale del sito.
+                    Questa area è una demo: i dati vengono salvati localmente nel browser
+                    e servono solo a simulare il comportamento del sito.
                 </p>
 
                 <form id="login-form">
                     <div class="form-group">
                         <label for="login-name">Nome</label>
-                        <input class="form-control" type="text" id="login-name" placeholder="Il tuo nome">
+                        <input class="form-control" type="text" id="login-name" required>
                     </div>
-
                     <div class="form-group">
                         <label for="login-email">Email</label>
-                        <input class="form-control" type="email" id="login-email" placeholder="nome@email.com">
+                        <input class="form-control" type="email" id="login-email" required>
                     </div>
-
                     <div class="form-group">
                         <label for="login-password">Password</label>
-                        <input class="form-control" type="password" id="login-password" placeholder="Inserisci una password">
+                        <input class="form-control" type="password" id="login-password" required>
                     </div>
 
-                    <button type="submit" class="btn">Entra nell'area personale</button>
+                    <button type="submit" class="btn">Accedi</button>
                     <div id="login-notice" class="notice"></div>
                 </form>
-
-                <p class="small-note mt-20">
-                    Versione demo frontend. Nessun accesso reale al database in questa fase.
-                </p>
             </div>
         </div>
     </section>
@@ -83,12 +76,12 @@
     <div class="footer-inner">
         <div>
             <strong>Liuteria Lo Verde</strong><br>
-            Accesso demo per costruire la futura esperienza personalizzata.
+            Una piccola area demo per simulare il funzionamento del sito lato utente.
         </div>
         <div>
-            <a href="profilo.html">Profilo</a> ·
-            <a href="carrello.html">Carrello</a> ·
-            <a href="index.html">Home</a>
+            <a href="servizi.html">Servizi</a> ·
+            <a href="guida-chitarre.html">Guida</a> ·
+            <a href="contatti.html">Contatti</a>
         </div>
     </div>
 </footer>

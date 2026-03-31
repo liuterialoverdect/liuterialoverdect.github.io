@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti - Liuteria Lo Verde</title>
-    <meta name="description" content="Contatta Liuteria Lo Verde per strumenti, servizi e consulenze.">
+    <meta name="description" content="Contatta la Liuteria Lo Verde per informazioni, riparazioni e progetti personalizzati.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,52 +34,56 @@
 </header>
 
 <main>
-    <section class="page-hero">
+<section class="page-hero">
         <div class="container">
             <h1>Contatti</h1>
             <p>
-                Per richieste, informazioni, consulenze e lavorazioni personalizzate.
+                Se vuoi parlarci di una riparazione, di uno strumento del laboratorio o di un progetto personalizzato,
+                scrivici con più dettagli possibili.
             </p>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <div class="form-shell">
-                <h2>Scrivici</h2>
+        <div class="container split">
+            <div class="card reveal">
+                <h2>Come possiamo aiutarti</h2>
                 <p>
-                    Questa è una base visuale pronta. In seguito possiamo collegarla a Formspree, Supabase o backend personalizzato.
+                    Più informazioni ci dai, più sarà facile darti una risposta utile. Per esempio:
+                    tipo di strumento, problema riscontrato, necessità di setup, idea sonora oppure budget indicativo.
                 </p>
+                <p>
+                    Se in futuro vorrai trasformare il sito in qualcosa di più completo, questa pagina
+                    potrà essere collegata a un vero sistema di invio email o a un backend dedicato.
+                </p>
+                <div class="image-frame mt-20">
+                    <img src="images/chi-laboratorio.jpg" alt="Laboratorio Liuteria Lo Verde">
+                </div>
+            </div>
 
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input class="form-control" type="text" id="nome" placeholder="Il tuo nome">
-                        </div>
+            <div class="form-shell reveal">
+                <h2>Scrivici</h2>
+                <p>Compila il modulo e ti ricontatteremo il prima possibile.</p>
 
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input class="form-control" type="email" id="email" placeholder="nome@email.com">
-                        </div>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input class="form-control" type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="argomento">Argomento</label>
-                        <input class="form-control" type="text" id="argomento" placeholder="Richiesta, servizio, strumento, consulenza...">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="messaggio">Messaggio</label>
-                        <textarea class="form-control" id="messaggio" placeholder="Scrivi qui il tuo messaggio"></textarea>
+                        <label for="message">Messaggio</label>
+                        <textarea class="form-control" id="message" name="message" required></textarea>
                     </div>
 
-                    <button type="button" class="btn">Invia richiesta</button>
+                    <button type="submit" class="btn">Invia messaggio</button>
+                    <div id="contact-notice" class="notice"></div>
                 </form>
-
-                <p class="small-note mt-20">
-                    Inserisci qui poi i contatti reali: email, telefono, città, social e orari.
-                </p>
             </div>
         </div>
     </section>
@@ -89,12 +93,12 @@
     <div class="footer-inner">
         <div>
             <strong>Liuteria Lo Verde</strong><br>
-            Contatti e richieste personalizzate.
+            Contatto diretto con il laboratorio per richieste, dubbi e progetti personalizzati.
         </div>
         <div>
             <a href="servizi.html">Servizi</a> ·
-            <a href="guida-chitarre.html">Guida chitarre</a> ·
-            <a href="index.html">Home</a>
+            <a href="guida-chitarre.html">Guida</a> ·
+            <a href="contatti.html">Contatti</a>
         </div>
     </div>
 </footer>

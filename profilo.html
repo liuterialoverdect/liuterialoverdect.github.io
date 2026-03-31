@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profilo utente - Liuteria Lo Verde</title>
-    <meta name="description" content="Area personale demo di Liuteria Lo Verde.">
+    <title>Profilo - Liuteria Lo Verde</title>
+    <meta name="description" content="Area personale demo dedicata al cliente.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,61 +34,34 @@
 </header>
 
 <main>
-    <section class="page-hero">
+<section class="page-hero">
         <div class="container">
-            <h1>Profilo utente</h1>
-            <p>
-                Uno spazio personale da cui, più avanti, potrai gestire ordini, preferiti, richieste e lavori in corso.
-            </p>
+            <h1>Profilo</h1>
+            <p>Una piccola area personale demo pensata per mostrare come potrebbe apparire il tuo account cliente.</p>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <div class="profile-layout">
-                <aside class="profile-sidebar">
-                    <div class="profile-avatar" id="profile-avatar">O</div>
-                    <h2 id="profile-name" class="mt-0">Ospite</h2>
-                    <div class="profile-meta">
-                        <div id="profile-email">Nessun account attivo</div>
+        <div class="container profile-layout">
+            <aside class="profile-sidebar reveal">
+                <div class="profile-avatar" id="profile-avatar">O</div>
+                <h3 id="profile-name">Ospite</h3>
+                <p id="profile-email" class="profile-meta">Nessun account demo attivo</p>
+                <button class="btn mt-20" onclick="logoutUser()">Esci</button>
+            </aside>
+
+            <div class="profile-main reveal">
+                <h2 id="profile-greeting">Benvenuto nell'area personale</h2>
+                <p id="profile-cart-info" class="profile-meta">Accedi per visualizzare la tua area utente demo.</p>
+
+                <div class="profile-boxes">
+                    <div class="info-box">
+                        <h4>Richieste future</h4>
+                        <p>Questa sezione potrà ospitare richieste di preventivo, lavorazioni in corso e note del laboratorio.</p>
                     </div>
-
-                    <div class="mt-30">
-                        <a href="carrello.html" class="btn-outline">Vai al carrello</a>
-                    </div>
-
-                    <div class="mt-12">
-                        <button class="btn-ghost" onclick="logoutUser()">Esci</button>
-                    </div>
-                </aside>
-
-                <div class="profile-main">
-                    <h2 id="profile-greeting" class="mt-0">Benvenuto nell'area personale</h2>
-                    <p class="section-text">
-                        Questa area è una base frontend già pronta. In una seconda fase potremo aggiungere
-                        autenticazione vera, storico ordini, richieste personalizzate e dashboard cliente.
-                    </p>
-
-                    <div class="profile-boxes">
-                        <div class="info-box">
-                            <h4>Carrello attuale</h4>
-                            <p id="profile-cart-info">Nessun dato disponibile.</p>
-                        </div>
-
-                        <div class="info-box">
-                            <h4>Stato account</h4>
-                            <p>Versione demo locale, salvata nel browser.</p>
-                        </div>
-
-                        <div class="info-box">
-                            <h4>Funzioni future</h4>
-                            <p>Ordini, cronologia acquisti, richieste di lavorazione, preventivi e preferiti.</p>
-                        </div>
-
-                        <div class="info-box">
-                            <h4>Esperienza personalizzata</h4>
-                            <p>Un'area pensata per rendere il sito più moderno, professionale e umano.</p>
-                        </div>
+                    <div class="info-box">
+                        <h4>Preferenze</h4>
+                        <p>Qui si potrebbero salvare strumenti preferiti, misure di setup e storico contatti.</p>
                     </div>
                 </div>
             </div>
@@ -100,12 +73,12 @@
     <div class="footer-inner">
         <div>
             <strong>Liuteria Lo Verde</strong><br>
-            Una base già pronta per l'evoluzione del sito.
+            Una pagina demo per immaginare come potrebbe funzionare l'area cliente.
         </div>
         <div>
-            <a href="login.html">Login</a> ·
-            <a href="carrello.html">Carrello</a> ·
-            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="servizi.html">Servizi</a> ·
+            <a href="guida-chitarre.html">Guida</a> ·
+            <a href="contatti.html">Contatti</a>
         </div>
     </div>
 </footer>

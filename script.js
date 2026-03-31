@@ -1,30 +1,26 @@
-
 function initNavbar() {
-    var navToggle = document.getElementById("navToggle");
-    var navMenu = document.getElementById("navMenu");
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
 
-    if (!navToggle || !navMenu) {
-        return;
-    }
+    if (!navToggle || !navMenu) return;
 
-    navToggle.addEventListener("click", function () {
-        var isOpen = navToggle.classList.toggle("is-open");
+    navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.classList.toggle("is-open");
         navMenu.classList.toggle("is-open");
         navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    var links = navMenu.querySelectorAll("a");
-    for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener("click", function () {
+    navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
             if (window.innerWidth <= 980) {
                 navToggle.classList.remove("is-open");
                 navMenu.classList.remove("is-open");
                 navToggle.setAttribute("aria-expanded", "false");
             }
         });
-    }
+    });
 
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", () => {
         if (window.innerWidth > 980) {
             navToggle.classList.remove("is-open");
             navMenu.classList.remove("is-open");
@@ -33,18 +29,36 @@ function initNavbar() {
     });
 }
 
-function getCart() {
-    var rawCart = localStorage.getItem("llv_cart");
+function initRevealAnimations() {
+    const elements = document.querySelectorAll(".reveal");
 
-    if (rawCart) {
-        try {
-            return JSON.parse(rawCart);
-        } catch (error) {
-            return [];
-        }
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(el => el.classList.add("is-visible"));
+        return;
     }
 
-    return [];
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    elements.forEach(el => observer.observe(el));
+}
+
+function getCart() {
+    const rawCart = localStorage.getItem("llv_cart");
+    if (!rawCart) return [];
+    try {
+        return JSON.parse(rawCart);
+    } catch (error) {
+        return [];
+    }
 }
 
 function saveCart(cart) {
@@ -53,33 +67,29 @@ function saveCart(cart) {
 }
 
 function updateCartBadge() {
-    var cart = getCart();
-    var totalItems = 0;
-    var badges = document.querySelectorAll("[data-cart-count]");
+    const cart = getCart();
+    let totalItems = 0;
 
-    for (var i = 0; i < cart.length; i++) {
-        totalItems = totalItems + cart[i].quantity;
-    }
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
 
-    for (var j = 0; j < badges.length; j++) {
-        badges[j].textContent = totalItems;
-    }
+    document.querySelectorAll("[data-cart-count]").forEach(badge => {
+        badge.textContent = totalItems;
+    });
 }
 
 function addToCart(product) {
-    var cart = getCart();
-    var found = false;
+    const cart = getCart();
+    const existing = cart.find(item => item.id === product.id);
 
-    for (var i = 0; i < cart.length; i++) {
-        if (cart[i].id === product.id) {
-            cart[i].quantity = cart[i].quantity + 1;
-            found = true;
-        }
-    }
-
-    if (!found) {
-        product.quantity = 1;
-        cart.push(product);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            ...product,
+            quantity: 1
+        });
     }
 
     saveCart(cart);
@@ -87,36 +97,22 @@ function addToCart(product) {
 }
 
 function removeFromCart(productId) {
-    var cart = getCart();
-    var newCart = [];
-    var i = 0;
-
-    while (i < cart.length) {
-        if (cart[i].id !== productId) {
-            newCart.push(cart[i]);
-        }
-        i = i + 1;
-    }
-
-    saveCart(newCart);
+    const cart = getCart().filter(item => item.id !== productId);
+    saveCart(cart);
     renderCartPage();
 }
 
 function changeQuantity(productId, delta) {
-    var cart = getCart();
-    var i = 0;
+    const cart = getCart();
 
-    while (i < cart.length) {
+    for (let i = 0; i < cart.length; i++) {
         if (cart[i].id === productId) {
-            cart[i].quantity = cart[i].quantity + delta;
-
+            cart[i].quantity += delta;
             if (cart[i].quantity <= 0) {
                 removeFromCart(productId);
                 return;
             }
         }
-
-        i = i + 1;
     }
 
     saveCart(cart);
@@ -128,165 +124,145 @@ function formatPrice(value) {
 }
 
 function renderCartPage() {
-    var cartContainer = document.getElementById("cart-items-list");
-    var subtotalElement = document.getElementById("cart-subtotal");
-    var shippingElement = document.getElementById("cart-shipping");
-    var totalElement = document.getElementById("cart-total");
+    const cartContainer = document.getElementById("cart-items-list");
+    const subtotalElement = document.getElementById("cart-subtotal");
+    const shippingElement = document.getElementById("cart-shipping");
+    const totalElement = document.getElementById("cart-total");
 
-    if (!cartContainer) {
-        return;
-    }
+    if (!cartContainer) return;
 
-    var cart = getCart();
-    var html = "";
-    var subtotal = 0;
+    const cart = getCart();
+    let html = "";
+    let subtotal = 0;
 
     if (cart.length === 0) {
-        html = ''
-            + '<div class="empty-state">'
-            + '<h3 class="mt-0">Il carrello è vuoto</h3>'
-            + '<p>Non hai ancora aggiunto strumenti o servizi. Esplora il sito e inizia a costruire la tua esperienza personalizzata con Liuteria Lo Verde.</p>'
-            + '<a class="btn mt-20" href="index.html#strumenti-home">Scopri gli strumenti</a>'
-            + '</div>';
+        cartContainer.innerHTML = `
+            <div class="empty-state">
+                <h3>Il carrello è vuoto</h3>
+                <p>Non hai ancora aggiunto strumenti o servizi. Esplora il sito e salva i prodotti che ti interessano.</p>
+                <a class="btn mt-20" href="strumenti.html">Vai agli strumenti</a>
+            </div>
+        `;
 
-        cartContainer.innerHTML = html;
-
-        if (subtotalElement) {
-            subtotalElement.textContent = formatPrice(0);
-        }
-
-        if (shippingElement) {
-            shippingElement.textContent = formatPrice(0);
-        }
-
-        if (totalElement) {
-            totalElement.textContent = formatPrice(0);
-        }
-
+        if (subtotalElement) subtotalElement.textContent = formatPrice(0);
+        if (shippingElement) shippingElement.textContent = formatPrice(0);
+        if (totalElement) totalElement.textContent = formatPrice(0);
         return;
     }
 
-    for (var i = 0; i < cart.length; i++) {
-        var item = cart[i];
-        var rowTotal = item.price * item.quantity;
-        subtotal = subtotal + rowTotal;
+    cart.forEach(item => {
+        const rowTotal = item.price * item.quantity;
+        subtotal += rowTotal;
 
-        html = html
-            + '<div class="cart-item">'
-            + '   <img class="cart-item-image" src="' + item.image + '" alt="' + item.name + '">'
-            + '   <div>'
-            + '       <h3>' + item.name + '</h3>'
-            + '       <p>' + item.description + '</p>'
-            + '       <button class="btn-ghost mt-12" onclick="removeFromCart(\'' + item.id + '\')">Rimuovi</button>'
-            + '   </div>'
-            + '   <div>'
-            + '       <div class="cart-item-price">' + formatPrice(rowTotal) + '</div>'
-            + '       <div class="qty-controls">'
-            + '           <button class="qty-btn" onclick="changeQuantity(\'' + item.id + '\', -1)">-</button>'
-            + '           <span>' + item.quantity + '</span>'
-            + '           <button class="qty-btn" onclick="changeQuantity(\'' + item.id + '\', 1)">+</button>'
-            + '       </div>'
-            + '   </div>'
-            + '</div>';
-    }
+        html += `
+            <div class="cart-item">
+                <img class="cart-item-image" src="${item.image}" alt="${item.name}">
+                <div>
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <button class="btn-ghost mt-12" onclick="removeFromCart('${item.id}')">Rimuovi</button>
+                </div>
+                <div>
+                    <div class="cart-item-price">${formatPrice(rowTotal)}</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQuantity('${item.id}', -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="qty-btn" onclick="changeQuantity('${item.id}', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
 
     cartContainer.innerHTML = html;
 
-    var shipping = subtotal >= 300 ? 0 : 18;
-    var total = subtotal + shipping;
+    const shipping = subtotal >= 300 ? 0 : 18;
+    const total = subtotal + shipping;
 
-    if (subtotalElement) {
-        subtotalElement.textContent = formatPrice(subtotal);
-    }
+    if (subtotalElement) subtotalElement.textContent = formatPrice(subtotal);
+    if (shippingElement) shippingElement.textContent = shipping === 0 ? "Gratuita" : formatPrice(shipping);
+    if (totalElement) totalElement.textContent = formatPrice(total);
+}
 
-    if (shippingElement) {
-        shippingElement.textContent = shipping === 0 ? "Gratuita" : formatPrice(shipping);
-    }
-
-    if (totalElement) {
-        totalElement.textContent = formatPrice(total);
-    }
+function bindAddToCartButtons() {
+    document.querySelectorAll("[data-add-to-cart]").forEach(button => {
+        button.addEventListener("click", function () {
+            addToCart({
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: parseFloat(this.dataset.price),
+                image: this.dataset.image,
+                description: this.dataset.description
+            });
+        });
+    });
 }
 
 function handleLoginForm() {
-    var form = document.getElementById("login-form");
-
-    if (!form) {
-        return;
-    }
+    const form = document.getElementById("login-form");
+    if (!form) return;
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        var name = document.getElementById("login-name").value.trim();
-        var email = document.getElementById("login-email").value.trim();
-        var password = document.getElementById("login-password").value.trim();
-        var notice = document.getElementById("login-notice");
+        const name = document.getElementById("login-name").value.trim();
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value.trim();
+        const notice = document.getElementById("login-notice");
 
-        if (name === "" || email === "" || password === "") {
+        if (!name || !email || !password) {
             notice.classList.add("error");
             notice.style.display = "block";
             notice.textContent = "Compila tutti i campi per continuare.";
             return;
         }
 
-        var user = {
+        localStorage.setItem("llv_user", JSON.stringify({
             name: name,
             email: email,
-            joined: "Cliente Liuteria Lo Verde",
-            savedItems: getCart().length
-        };
-
-        localStorage.setItem("llv_user", JSON.stringify(user));
+            role: "Cliente Liuteria Lo Verde"
+        }));
 
         notice.classList.remove("error");
         notice.style.display = "block";
-        notice.textContent = "Accesso demo completato. Ora puoi entrare nell'area personale.";
+        notice.textContent = "Accesso demo completato.";
 
-        setTimeout(function () {
+        setTimeout(() => {
             window.location.href = "profilo.html";
         }, 700);
     });
 }
 
 function loadProfilePage() {
-    var nameElement = document.getElementById("profile-name");
-    var emailElement = document.getElementById("profile-email");
-    var avatarElement = document.getElementById("profile-avatar");
-    var greetingElement = document.getElementById("profile-greeting");
-    var cartInfoElement = document.getElementById("profile-cart-info");
-    var userRaw = localStorage.getItem("llv_user");
+    const nameElement = document.getElementById("profile-name");
+    const emailElement = document.getElementById("profile-email");
+    const avatarElement = document.getElementById("profile-avatar");
+    const greetingElement = document.getElementById("profile-greeting");
+    const cartInfoElement = document.getElementById("profile-cart-info");
 
-    if (!nameElement || !emailElement || !avatarElement || !greetingElement || !cartInfoElement) {
-        return;
-    }
+    if (!nameElement || !emailElement || !avatarElement || !greetingElement || !cartInfoElement) return;
+
+    const userRaw = localStorage.getItem("llv_user");
 
     if (!userRaw) {
         nameElement.textContent = "Ospite";
         emailElement.textContent = "Nessun account demo attivo";
         avatarElement.textContent = "O";
         greetingElement.textContent = "Benvenuto nell'area personale";
-        cartInfoElement.textContent = "Accedi per personalizzare la tua esperienza e salvare preferenze.";
+        cartInfoElement.textContent = "Accedi per visualizzare la tua area utente demo.";
         return;
     }
-
-    var user;
 
     try {
-        user = JSON.parse(userRaw);
+        const user = JSON.parse(userRaw);
+        nameElement.textContent = user.name;
+        emailElement.textContent = user.email;
+        avatarElement.textContent = user.name.charAt(0).toUpperCase();
+        greetingElement.textContent = "Bentornato, " + user.name;
+        cartInfoElement.textContent = "Hai " + getCart().length + " prodotto/i nel carrello.";
     } catch (error) {
-        user = null;
+        console.error(error);
     }
-
-    if (!user) {
-        return;
-    }
-
-    nameElement.textContent = user.name;
-    emailElement.textContent = user.email;
-    avatarElement.textContent = user.name.charAt(0).toUpperCase();
-    greetingElement.textContent = "Bentornato, " + user.name;
-    cartInfoElement.textContent = "Hai " + getCart().length + " prodotto/i nel carrello in questa sessione.";
 }
 
 function logoutUser() {
@@ -294,32 +270,28 @@ function logoutUser() {
     window.location.href = "login.html";
 }
 
-function bindAddToCartButtons() {
-    var buttons = document.querySelectorAll("[data-add-to-cart]");
-    var i = 0;
+function handleContactForm() {
+    const form = document.getElementById("contact-form");
+    const notice = document.getElementById("contact-notice");
 
-    while (i < buttons.length) {
-        buttons[i].addEventListener("click", function () {
-            var product = {
-                id: this.getAttribute("data-id"),
-                name: this.getAttribute("data-name"),
-                price: Number(this.getAttribute("data-price")),
-                image: this.getAttribute("data-image"),
-                description: this.getAttribute("data-description")
-            };
+    if (!form || !notice) return;
 
-            addToCart(product);
-        });
-
-        i = i + 1;
-    }
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        notice.classList.remove("error");
+        notice.style.display = "block";
+        notice.textContent = "Messaggio inviato correttamente. Questa è una demo frontend.";
+        form.reset();
+    });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     initNavbar();
+    initRevealAnimations();
     updateCartBadge();
     bindAddToCartButtons();
+    renderCartPage();
     handleLoginForm();
     loadProfilePage();
-    renderCartPage();
+    handleContactForm();
 });
