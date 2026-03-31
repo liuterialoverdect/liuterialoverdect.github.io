@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="brand">Liuteria Lo Verde</a><div class="nav-links"><a href="index.html">Home</a><a href="chi.html">Chi siamo</a><a href="storia.html">La nostra storia</a><a href="strumenti.html" class="active">Strumenti</a><a href="contatti.html">Contatti</a></div></div></nav>
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html" class="active">Strumenti</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+        </nav>
+    </div>
+</header>
 <div class="page-hero"><div class="container"><h1>Chitarra Classica Artigianale</h1><p>Una scheda prodotto pensata per presentare lo strumento in modo chiaro, elegante e credibile.</p></div></div>
 <section><div class="container product-layout"><div><img class="product-main" src="images/prodotto-classica-main.jpg" alt="Chitarra classica artigianale"><div class="thumb-row"><img src="images/prodotto-classica-1.jpg" alt="Dettaglio 1"><img src="images/prodotto-classica-2.jpg" alt="Dettaglio 2"><img src="images/prodotto-classica-3.jpg" alt="Dettaglio 3"></div></div><div class="product-panel"><h2>Modello Studio</h2><p>Uno strumento costruito con approccio artigianale, progettato per offrire equilibrio sonoro, comodità esecutiva e presenza timbrica. Pensato per studenti avanzati, appassionati e musicisti che cercano una chitarra con una voce propria.</p><div class="price">€ 1.490</div><div class="meta-list"><div class="meta-item"><strong>Disponibilità:</strong> Su richiesta</div><div class="meta-item"><strong>Tempi di realizzazione:</strong> 30-60 giorni</div><div class="meta-item"><strong>Finitura:</strong> Naturale satinata</div><div class="meta-item"><strong>Categoria:</strong> Chitarra classica artigianale</div></div><a href="contatti.html" class="btn">Richiedi informazioni</a></div></div></section>
 <footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

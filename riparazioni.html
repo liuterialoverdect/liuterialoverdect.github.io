@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="brand">Liuteria Lo Verde</a><div class="nav-links"><a href="index.html">Home</a><a href="chi.html">Chi siamo</a><a href="storia.html">La nostra storia</a><a href="strumenti.html">Strumenti</a><a href="contatti.html">Contatti</a></div></div></nav>
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="servizi.html" class="active">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+        </nav>
+    </div>
+</header>
 <div class="page-hero"><div class="container"><h1>Riparazioni</h1><p>Raccontaci il problema del tuo strumento e inviaci tutte le informazioni utili per una prima valutazione.</p></div></div>
 <section><div class="container grid-2"><div><div class="section-head"><div class="eyebrow">Interventi</div><h2>Restauro, manutenzione e setup.</h2><p>Offriamo interventi di manutenzione, regolazione, riparazione strutturale e restauro. Ogni strumento viene valutato con attenzione per capire il problema e proporre la soluzione più adatta.</p></div><div class="list-box"><h3>Esempi di interventi</h3><ul><li>Riparazione di crepe e danni alla cassa</li><li>Sostituzione o sistemazione di meccaniche e componenti</li><li>Setup, action e regolazioni generali</li><li>Interventi su manico, tastiera e ponte</li><li>Restauro di strumenti datati o danneggiati</li></ul></div></div><div class="form-box"><form><div class="form-row"><div><label for="nome">Nome e cognome</label><input type="text" id="nome" name="nome" required></div><div><label for="email">Email</label><input type="email" id="email" name="email" required></div></div><div class="form-row"><div><label for="telefono">Telefono</label><input type="tel" id="telefono" name="telefono"></div><div><label for="strumento">Tipo di strumento</label><select id="strumento" name="strumento" required><option value="">Seleziona</option><option>Chitarra classica</option><option>Chitarra acustica</option><option>Chitarra elettrica</option><option>Basso</option><option>Mandolino</option><option>Altro</option></select></div></div><label for="marca">Marca o modello</label><input type="text" id="marca" name="marca" placeholder="Es. Yamaha C40, strumento artigianale, ecc."><label for="problema">Descrizione del problema</label><textarea id="problema" name="problema" placeholder="Descrivi il danno o il problema dello strumento nel modo più preciso possibile." required></textarea><label for="note">Informazioni aggiuntive</label><textarea id="note" name="note" placeholder="Età dello strumento, urti subiti, riparazioni precedenti, urgenza, ecc."></textarea><button class="btn-small" type="submit">Invia richiesta di riparazione</button></form></div></div></section>
 <footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="brand">Liuteria Lo Verde</a><div class="nav-links"><a href="index.html">Home</a><a href="chi.html">Chi siamo</a><a href="storia.html">La nostra storia</a><a href="strumenti.html">Strumenti</a><a href="contatti.html">Contatti</a></div></div></nav>
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="servizi.html" class="active">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+        </nav>
+    </div>
+</header>
 <div class="page-hero"><div class="container"><h1>Personalizzazione</h1><p>Uno strumento pensato sulle esigenze del musicista, nelle forme, nei materiali e nella risposta sonora.</p></div></div>
 <section><div class="container split"><div><div class="section-head"><div class="eyebrow">Su misura</div><h2>Un progetto davvero tuo.</h2><p>La personalizzazione permette di costruire o modificare uno strumento seguendo preferenze precise. Ogni musicista ha mani, gusto, tecnica e aspettative diverse: per questo valutiamo insieme configurazione, comfort, timbrica e dettagli estetici.</p></div><div class="grid-2"><div class="feature"><h3>Suono</h3><p>Definizione di una risposta timbrica coerente con lo stile e con l’utilizzo previsto.</p></div><div class="feature"><h3>Comfort</h3><p>Profilo del manico, ergonomia e sensazione al tocco vengono messi al centro del progetto.</p></div></div></div><div><img src="images/personalizzazione-main.jpg" alt="Personalizzazione strumento"></div></div></section>
 <footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

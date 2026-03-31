@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="brand">Liuteria Lo Verde</a><div class="nav-links"><a href="index.html">Home</a><a href="chi.html">Chi siamo</a><a href="storia.html">La nostra storia</a><a href="strumenti.html" class="active">Strumenti</a><a href="contatti.html">Contatti</a></div></div></nav>
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html" class="active">Strumenti</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="guida-chitarre.html">Guida chitarre</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="login.html">Area utente</a>
+            <a href="profilo.html">Profilo</a>
+            <a href="carrello.html">Carrello <span class="cart-badge" data-cart-count>0</span></a>
+        </nav>
+    </div>
+</header>
 <div class="page-hero"><div class="container"><h1>Chitarra Acustica</h1><p>Uno strumento pensato per unire versatilità, definizione e comfort in ogni contesto musicale.</p></div></div>
 <section><div class="container product-layout"><div><img class="product-main" src="images/prodotto-acustica-main.jpg" alt="Chitarra acustica artigianale"><div class="thumb-row"><img src="images/prodotto-acustica-1.jpg" alt="Dettaglio 1"><img src="images/prodotto-acustica-2.jpg" alt="Dettaglio 2"><img src="images/prodotto-acustica-3.jpg" alt="Dettaglio 3"></div></div><div class="product-panel"><h2>Modello Acoustic Live</h2><p>Una chitarra acustica progettata per offrire proiezione, chiarezza e una risposta dinamica efficace. Ideale per fingerstyle, accompagnamento e performance live.</p><div class="price">€ 1.790</div><div class="meta-list"><div class="meta-item"><strong>Disponibilità:</strong> Su richiesta</div><div class="meta-item"><strong>Tempi di realizzazione:</strong> 45-75 giorni</div><div class="meta-item"><strong>Finitura:</strong> Satinata naturale</div><div class="meta-item"><strong>Categoria:</strong> Chitarra acustica artigianale</div></div><a href="contatti.html" class="btn">Richiedi informazioni</a></div></div></section>
 <footer><div class="footer-inner"><p>&copy; 2026 Liuteria Lo Verde</p></div></footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

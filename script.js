@@ -1,3 +1,38 @@
+
+function initNavbar() {
+    var navToggle = document.getElementById("navToggle");
+    var navMenu = document.getElementById("navMenu");
+
+    if (!navToggle || !navMenu) {
+        return;
+    }
+
+    navToggle.addEventListener("click", function () {
+        var isOpen = navToggle.classList.toggle("is-open");
+        navMenu.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    var links = navMenu.querySelectorAll("a");
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener("click", function () {
+            if (window.innerWidth <= 980) {
+                navToggle.classList.remove("is-open");
+                navMenu.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 980) {
+            navToggle.classList.remove("is-open");
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
 function getCart() {
     var rawCart = localStorage.getItem("llv_cart");
 
@@ -281,6 +316,7 @@ function bindAddToCartButtons() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    initNavbar();
     updateCartBadge();
     bindAddToCartButtons();
     handleLoginForm();
