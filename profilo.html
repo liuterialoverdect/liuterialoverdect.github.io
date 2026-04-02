@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo - Liuteria Lo Verde</title>
-    <meta name="description" content="Area personale demo dedicata al cliente.">
+    <meta name="description" content="Profilo utente della Liuteria Lo Verde.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,34 +34,64 @@
 </header>
 
 <main>
-<section class="page-hero">
+    <section class="page-hero">
         <div class="container">
-            <h1>Profilo</h1>
-            <p>Una piccola area personale demo pensata per mostrare come potrebbe apparire il tuo account cliente.</p>
+            <h1>Il tuo profilo</h1>
+            <p>
+                Gestisci i tuoi dati personali e tieni aggiornata la tua area cliente.
+            </p>
         </div>
     </section>
 
     <section class="section">
         <div class="container profile-layout">
             <aside class="profile-sidebar reveal">
-                <div class="profile-avatar" id="profile-avatar">O</div>
-                <h3 id="profile-name">Ospite</h3>
-                <p id="profile-email" class="profile-meta">Nessun account demo attivo</p>
-                <button class="btn mt-20" onclick="logoutUser()">Esci</button>
+                <div class="profile-avatar" id="profile-avatar">?</div>
+                <h3 id="profile-name-display">Caricamento...</h3>
+                <p id="profile-email-display" class="profile-meta">Attendere...</p>
+                <button class="btn mt-20" type="button" id="logoutBtn">Esci</button>
             </aside>
 
             <div class="profile-main reveal">
-                <h2 id="profile-greeting">Benvenuto nell'area personale</h2>
-                <p id="profile-cart-info" class="profile-meta">Accedi per visualizzare la tua area utente demo.</p>
+                <h2 id="profile-greeting">Benvenuto</h2>
+                <p class="profile-meta">
+                    Qui puoi aggiornare i dati del tuo profilo collegato all'account.
+                </p>
+
+                <div id="profile-notice" class="notice"></div>
+
+                <form id="profile-form" class="mt-20">
+                    <div class="form-group">
+                        <label for="profile-name">Nome</label>
+                        <input class="form-control" type="text" id="profile-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-email">Email</label>
+                        <input class="form-control" type="email" id="profile-email" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-phone">Telefono</label>
+                        <input class="form-control" type="text" id="profile-phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-avatar-url">Avatar URL</label>
+                        <input class="form-control" type="text" id="profile-avatar-url" placeholder="https://...">
+                    </div>
+
+                    <button class="btn" type="submit">Salva modifiche</button>
+                </form>
 
                 <div class="profile-boxes">
                     <div class="info-box">
-                        <h4>Richieste future</h4>
-                        <p>Questa sezione potrà ospitare richieste di preventivo, lavorazioni in corso e note del laboratorio.</p>
+                        <h4>Account</h4>
+                        <p>Questo profilo è collegato direttamente al tuo account autenticato.</p>
                     </div>
                     <div class="info-box">
-                        <h4>Preferenze</h4>
-                        <p>Qui si potrebbero salvare strumenti preferiti, misure di setup e storico contatti.</p>
+                        <h4>Privacy</h4>
+                        <p>I dati sono letti e aggiornati solo per l'utente autenticato.</p>
                     </div>
                 </div>
             </div>
@@ -73,16 +103,16 @@
     <div class="footer-inner">
         <div>
             <strong>Liuteria Lo Verde</strong><br>
-            Una pagina demo per immaginare come potrebbe funzionare l'area cliente.
+            Profilo cliente.
         </div>
         <div>
-            <a href="servizi.html">Servizi</a> ·
-            <a href="guida-chitarre.html">Guida</a> ·
-            <a href="contatti.html">Contatti</a>
+            <a href="contatti.html">Contatti</a> ·
+            <a href="login.html">Area utente</a>
         </div>
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 </body>
 </html>

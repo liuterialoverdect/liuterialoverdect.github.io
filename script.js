@@ -295,3 +295,165 @@ document.addEventListener("DOMContentLoaded", () => {
     loadProfilePage();
     handleContactForm();
 });
+const SUPABASE_URL = "https://gwnjdjvsjvvhsgrtitop.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ccmCgBXPoelvpNLmTErkUw_8taW9HCd";
+
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+/* NAVBAR */
+function initNavbar() {
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.classList.toggle("is-open");
+        navMenu.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 980) {
+                navToggle.classList.remove("is-open");
+                navMenu.classList.remove("is-open");
+            }
+        });
+    });
+}
+
+/* ANIMAZIONI */
+function initRevealAnimations() {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+            }
+        });
+    });
+
+    elements.forEach(el => observer.observe(el));
+}
+
+/* CART */
+function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem("llv_cart") || "[]");
+    let total = 0;
+    cart.forEach(i => total += i.quantity);
+
+    document.querySelectorAll("[data-cart-count]").forEach(el => {
+        el.textContent = total;
+    });
+}
+
+/* NOTICE */
+function showNotice(el, msg, err = false) {
+    el.textContent = msg;
+    el.style.display = "block";
+    el.classList.toggle("error", err);
+}
+
+/* LOGIN */
+async function handleLoginPage() {
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+    const notice = document.getElementById("auth-notice");
+
+    if (!loginForm) return;
+
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+        window.location.href = "profilo.html";
+        return;
+    }
+
+    loginForm.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+        if (error) return showNotice(notice, error.message, true);
+
+        window.location.href = "profilo.html";
+    });
+
+    signupForm.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        const nome = document.getElementById("signup-name").value;
+        const email = document.getElementById("signup-email").value;
+        const password = document.getElementById("signup-password").value;
+
+        const { error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: { data: { nome } }
+        });
+
+        if (error) return showNotice(notice, error.message, true);
+
+        showNotice(notice, "Registrato! Controlla email.");
+    });
+}
+
+/* PROFILO */
+async function loadProfilePage() {
+    const form = document.getElementById("profile-form");
+    if (!form) return;
+
+    const { data: { user } } = await supabaseClient.auth.getUser();
+
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    const { data: profile } = await supabaseClient
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
+
+    document.getElementById("profile-name").value = profile.nome || "";
+    document.getElementById("profile-email").value = profile.email || user.email;
+    document.getElementById("profile-phone").value = profile.telefono || "";
+    document.getElementById("profile-avatar-url").value = profile.avatar_url || "";
+
+    form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        const updates = {
+            nome: document.getElementById("profile-name").value,
+            telefono: document.getElementById("profile-phone").value,
+            avatar_url: document.getElementById("profile-avatar-url").value,
+            updated_at: new Date()
+        };
+
+        await supabaseClient
+            .from("profiles")
+            .update(updates)
+            .eq("id", user.id);
+
+        alert("Profilo aggiornato!");
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+        await supabaseClient.auth.signOut();
+        window.location.href = "login.html";
+    });
+}
+
+/* INIT */
+document.addEventListener("DOMContentLoaded", () => {
+    initNavbar();
+    initRevealAnimations();
+    updateCartBadge();
+    handleLoginPage();
+    loadProfilePage();
+});

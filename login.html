@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area utente - Liuteria Lo Verde</title>
-    <meta name="description" content="Accesso demo frontend per simulare un profilo cliente.">
+    <meta name="description" content="Accedi o registrati all'area utente della Liuteria Lo Verde.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,38 +34,74 @@
 </header>
 
 <main>
-<section class="page-hero">
+    <section class="page-hero">
         <div class="container">
             <h1>Area utente</h1>
-            <p>Accesso demo frontend per simulare un profilo cliente e una piccola area personale.</p>
+            <p>
+                Accedi al tuo profilo oppure crea un account per salvare le tue richieste e gestire i tuoi dati.
+            </p>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <div class="form-shell reveal">
-                <h2>Accedi</h2>
+        <div class="container split">
+            <div class="card reveal">
+                <span class="eyebrow">Accesso sicuro</span>
+                <h2>Un solo account per seguire richieste e preferenze</h2>
                 <p>
-                    Questa area è una demo: i dati vengono salvati localmente nel browser
-                    e servono solo a simulare il comportamento del sito.
+                    Da questa area puoi accedere al tuo profilo personale, aggiornare i dati principali
+                    e avere una base pronta per future funzioni come preventivi, richieste o storico lavorazioni.
                 </p>
+                <p>
+                    Se non hai ancora un account, puoi registrarti direttamente qui sotto.
+                </p>
+            </div>
+
+            <div class="form-shell reveal">
+                <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+                    <button class="btn" type="button" id="showLoginBtn">Accedi</button>
+                    <button class="btn-outline" type="button" id="showSignupBtn">Registrati</button>
+                </div>
+
+                <div id="auth-notice" class="notice"></div>
 
                 <form id="login-form">
-                    <div class="form-group">
-                        <label for="login-name">Nome</label>
-                        <input class="form-control" type="text" id="login-name" required>
-                    </div>
+                    <h2>Accedi</h2>
+                    <p>Inserisci email e password per entrare nel tuo profilo.</p>
+
                     <div class="form-group">
                         <label for="login-email">Email</label>
                         <input class="form-control" type="email" id="login-email" required>
                     </div>
+
                     <div class="form-group">
                         <label for="login-password">Password</label>
                         <input class="form-control" type="password" id="login-password" required>
                     </div>
 
-                    <button type="submit" class="btn">Accedi</button>
-                    <div id="login-notice" class="notice"></div>
+                    <button class="btn" type="submit">Accedi</button>
+                </form>
+
+                <form id="signup-form" class="hidden">
+                    <h2>Crea account</h2>
+                    <p>Registrati con i tuoi dati principali.</p>
+
+                    <div class="form-group">
+                        <label for="signup-name">Nome</label>
+                        <input class="form-control" type="text" id="signup-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input class="form-control" type="email" id="signup-email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input class="form-control" type="password" id="signup-password" minlength="6" required>
+                    </div>
+
+                    <button class="btn" type="submit">Registrati</button>
                 </form>
             </div>
         </div>
@@ -76,16 +112,16 @@
     <div class="footer-inner">
         <div>
             <strong>Liuteria Lo Verde</strong><br>
-            Una piccola area demo per simulare il funzionamento del sito lato utente.
+            Accesso al profilo cliente.
         </div>
         <div>
-            <a href="servizi.html">Servizi</a> ·
-            <a href="guida-chitarre.html">Guida</a> ·
-            <a href="contatti.html">Contatti</a>
+            <a href="contatti.html">Contatti</a> ·
+            <a href="profilo.html">Profilo</a>
         </div>
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 </body>
 </html>
