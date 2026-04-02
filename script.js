@@ -250,7 +250,7 @@ function initAuthToggle() {
     });
 }
 
-/* LOGIN / SIGNUP CON SUPABASE */
+/* LOGIN / SIGNUP */
 async function handleLoginPage() {
     const loginForm = document.getElementById("login-form");
     const signupForm = document.getElementById("signup-form");
@@ -422,7 +422,7 @@ async function loadProfilePage() {
     }
 }
 
-/* FORM CONTATTI */
+/* CONTATTI */
 function handleContactForm() {
     const form = document.getElementById("contact-form");
     const notice = document.getElementById("contact-notice");
