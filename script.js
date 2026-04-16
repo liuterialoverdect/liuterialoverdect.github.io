@@ -11,7 +11,7 @@ function initNavbar() {
     const navToggle = document.getElementById("navToggle");
     const navMenu = document.getElementById("navMenu");
 
-    if (!navToggle || !navMenu) return; // 🔥 evita crash
+    if (!navToggle || !navMenu) return;
 
     navToggle.addEventListener("click", () => {
         const isOpen = navToggle.classList.toggle("is-open");
@@ -19,7 +19,7 @@ function initNavbar() {
         navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    navMenu.querySelectorAll("a").forEach(link => {
+    navMenu.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
             if (window.innerWidth <= 980) {
                 navToggle.classList.remove("is-open");
@@ -28,29 +28,103 @@ function initNavbar() {
             }
         });
     });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 980) {
+            navToggle.classList.remove("is-open");
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
+    });
 }
 
 /* ANIMAZIONI */
 function initRevealAnimations() {
     const elements = document.querySelectorAll(".reveal");
 
+    if (!elements.length) return;
+
+    document.body.classList.add("js-ready");
+    elements.forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
+    });
+
     if (!("IntersectionObserver" in window)) {
-        elements.forEach(el => el.classList.add("is-visible"));
+        elements.forEach((el) => el.classList.add("is-visible"));
         return;
     }
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("is-visible");
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15
+        threshold: 0.14,
+        rootMargin: "0px 0px -40px 0px"
     });
 
-    elements.forEach(el => observer.observe(el));
+    elements.forEach((el) => observer.observe(el));
+}
+
+function initScrollEffects() {
+    const topbar = document.querySelector(".topbar");
+    if (!topbar) return;
+
+    const updateTopbar = () => {
+        if (window.scrollY > 14) {
+            topbar.classList.add("is-scrolled");
+        } else {
+            topbar.classList.remove("is-scrolled");
+        }
+    };
+
+    updateTopbar();
+    window.addEventListener("scroll", updateTopbar, { passive: true });
+}
+
+function initCursorGlow() {
+    if (window.innerWidth <= 980) return;
+
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    document.body.appendChild(glow);
+
+    window.addEventListener("mousemove", (event) => {
+        document.body.classList.add("cursor-active");
+        glow.style.left = `${event.clientX}px`;
+        glow.style.top = `${event.clientY}px`;
+    });
+
+    window.addEventListener("mouseleave", () => {
+        document.body.classList.remove("cursor-active");
+    });
+}
+
+function initHeroParallax() {
+    const hero = document.querySelector(".hero-grid");
+    if (!hero || window.innerWidth <= 980) return;
+
+    const animated = hero.querySelectorAll(".hero-copy, .hero-card");
+
+    hero.addEventListener("mousemove", (event) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        animated.forEach((element, index) => {
+            const depth = index === 0 ? 10 : 16;
+            element.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
+        });
+    });
+
+    hero.addEventListener("mouseleave", () => {
+        animated.forEach((element) => {
+            element.style.transform = "translate3d(0, 0, 0)";
+        });
+    });
 }
 
 /* CARRELLO */
@@ -255,7 +329,10 @@ async function handleLoginPage() {
 
     clearNotice(notice);
 
-    if (!supabaseClient) return;
+    if (!supabaseClient) {
+        showNotice(notice, "Supabase non disponibile.", true);
+        return;
+    }
 
     const { data: { session } } = await supabaseClient.auth.getSession();
 
@@ -342,7 +419,10 @@ async function loadProfilePage() {
 
     clearNotice(notice);
 
-    if (!supabaseClient) return;
+    if (!supabaseClient) {
+        showNotice(notice, "Supabase non disponibile.", true);
+        return;
+    }
 
     const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
 
@@ -428,11 +508,53 @@ function handleContactForm() {
 
     if (!form || !notice) return;
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
-        notice.classList.remove("error");
-        notice.style.display = "block";
-        notice.textContent = "Messaggio inviato correttamente. Questa è una demo frontend.";
+        clearNotice(notice);
+
+        if (!supabaseClient) {
+            showNotice(notice, "Supabase non disponibile in questa pagina.", true);
+            return;
+        }
+
+        const name = document.getElementById("contact-name")?.value.trim() || "";
+        const email = document.getElementById("contact-email")?.value.trim() || "";
+        const phone = document.getElementById("contact-phone")?.value.trim() || "";
+        const message = document.getElementById("contact-message")?.value.trim() || "";
+
+        if (!name || !email || !message) {
+            showNotice(notice, "Compila nome, email e messaggio.", true);
+            return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Invio in corso...";
+        }
+
+        const { error } = await supabaseClient
+            .from("contact_requests")
+            .insert([
+                {
+                    name,
+                    email,
+                    phone,
+                    message
+                }
+            ]);
+
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Invia richiesta";
+        }
+
+        if (error) {
+            showNotice(notice, "Invio non riuscito: " + error.message, true);
+            return;
+        }
+
+        showNotice(notice, "Richiesta inviata correttamente.");
         form.reset();
     });
 }
@@ -440,7 +562,10 @@ function handleContactForm() {
 /* INIT */
 document.addEventListener("DOMContentLoaded", () => {
     initNavbar();
+    initScrollEffects();
     initRevealAnimations();
+    initCursorGlow();
+    initHeroParallax();
     updateCartBadge();
     bindAddToCartButtons();
     renderCartPage();
