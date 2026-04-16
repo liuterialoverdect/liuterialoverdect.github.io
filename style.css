@@ -31,7 +31,7 @@ html, body {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     background:
         radial-gradient(circle at top, rgba(200, 155, 60, 0.08), transparent 28%),
         linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
@@ -142,9 +142,9 @@ textarea {
 }
 
 .brand {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     color: var(--text);
     white-space: nowrap;
     position: relative;
@@ -213,10 +213,12 @@ textarea {
 
 .nav-links a {
     color: var(--text-soft);
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-radius: 999px;
     transition: 0.25s ease;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
     white-space: nowrap;
     flex: 0 0 auto;
 }

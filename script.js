@@ -11,7 +11,7 @@ function initNavbar() {
     const navToggle = document.getElementById("navToggle");
     const navMenu = document.getElementById("navMenu");
 
-    if (!navToggle || !navMenu) return;
+    if (!navToggle || !navMenu) return; // 🔥 evita crash
 
     navToggle.addEventListener("click", () => {
         const isOpen = navToggle.classList.toggle("is-open");
@@ -28,21 +28,11 @@ function initNavbar() {
             }
         });
     });
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 980) {
-            navToggle.classList.remove("is-open");
-            navMenu.classList.remove("is-open");
-            navToggle.setAttribute("aria-expanded", "false");
-        }
-    });
 }
 
 /* ANIMAZIONI */
 function initRevealAnimations() {
     const elements = document.querySelectorAll(".reveal");
-
-    if (!elements.length) return;
 
     if (!("IntersectionObserver" in window)) {
         elements.forEach(el => el.classList.add("is-visible"));
@@ -265,10 +255,7 @@ async function handleLoginPage() {
 
     clearNotice(notice);
 
-    if (!supabaseClient) {
-        showNotice(notice, "Supabase non disponibile.", true);
-        return;
-    }
+    if (!supabaseClient) return;
 
     const { data: { session } } = await supabaseClient.auth.getSession();
 
@@ -355,10 +342,7 @@ async function loadProfilePage() {
 
     clearNotice(notice);
 
-    if (!supabaseClient) {
-        showNotice(notice, "Supabase non disponibile.", true);
-        return;
-    }
+    if (!supabaseClient) return;
 
     const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
 
@@ -444,53 +428,11 @@ function handleContactForm() {
 
     if (!form || !notice) return;
 
-    form.addEventListener("submit", async function (event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
-        clearNotice(notice);
-
-        if (!supabaseClient) {
-            showNotice(notice, "Supabase non disponibile in questa pagina.", true);
-            return;
-        }
-
-        const name = document.getElementById("contact-name")?.value.trim() || "";
-        const email = document.getElementById("contact-email")?.value.trim() || "";
-        const phone = document.getElementById("contact-phone")?.value.trim() || "";
-        const message = document.getElementById("contact-message")?.value.trim() || "";
-
-        if (!name || !email || !message) {
-            showNotice(notice, "Compila nome, email e messaggio.", true);
-            return;
-        }
-
-        const submitButton = form.querySelector('button[type="submit"]');
-        if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.textContent = "Invio in corso...";
-        }
-
-        const { error } = await supabaseClient
-            .from("contact_requests")
-            .insert([
-                {
-                    name,
-                    email,
-                    phone,
-                    message
-                }
-            ]);
-
-        if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Invia richiesta";
-        }
-
-        if (error) {
-            showNotice(notice, "Invio non riuscito: " + error.message, true);
-            return;
-        }
-
-        showNotice(notice, "Richiesta inviata correttamente.");
+        notice.classList.remove("error");
+        notice.style.display = "block";
+        notice.textContent = "Messaggio inviato correttamente. Questa è una demo frontend.";
         form.reset();
     });
 }
