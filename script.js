@@ -41,13 +41,9 @@ function initNavbar() {
 /* ANIMAZIONI */
 function initRevealAnimations() {
     const elements = document.querySelectorAll(".reveal");
-
     if (!elements.length) return;
 
     document.body.classList.add("js-ready");
-    elements.forEach((el, index) => {
-        el.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
-    });
 
     if (!("IntersectionObserver" in window)) {
         elements.forEach((el) => el.classList.add("is-visible"));
@@ -62,8 +58,8 @@ function initRevealAnimations() {
             }
         });
     }, {
-        threshold: 0.14,
-        rootMargin: "0px 0px -40px 0px"
+        threshold: 0.12,
+        rootMargin: "0px 0px -20px 0px"
     });
 
     elements.forEach((el) => observer.observe(el));
@@ -73,58 +69,25 @@ function initScrollEffects() {
     const topbar = document.querySelector(".topbar");
     if (!topbar) return;
 
+    let ticking = false;
+
     const updateTopbar = () => {
         if (window.scrollY > 14) {
             topbar.classList.add("is-scrolled");
         } else {
             topbar.classList.remove("is-scrolled");
         }
+        ticking = false;
     };
 
     updateTopbar();
-    window.addEventListener("scroll", updateTopbar, { passive: true });
-}
 
-function initCursorGlow() {
-    if (window.innerWidth <= 980) return;
-
-    const glow = document.createElement("div");
-    glow.className = "cursor-glow";
-    document.body.appendChild(glow);
-
-    window.addEventListener("mousemove", (event) => {
-        document.body.classList.add("cursor-active");
-        glow.style.left = `${event.clientX}px`;
-        glow.style.top = `${event.clientY}px`;
-    });
-
-    window.addEventListener("mouseleave", () => {
-        document.body.classList.remove("cursor-active");
-    });
-}
-
-function initHeroParallax() {
-    const hero = document.querySelector(".hero-grid");
-    if (!hero || window.innerWidth <= 980) return;
-
-    const animated = hero.querySelectorAll(".hero-copy, .hero-card");
-
-    hero.addEventListener("mousemove", (event) => {
-        const rect = hero.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        animated.forEach((element, index) => {
-            const depth = index === 0 ? 10 : 16;
-            element.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
-        });
-    });
-
-    hero.addEventListener("mouseleave", () => {
-        animated.forEach((element) => {
-            element.style.transform = "translate3d(0, 0, 0)";
-        });
-    });
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateTopbar);
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 /* CARRELLO */
@@ -148,18 +111,18 @@ function updateCartBadge() {
     const cart = getCart();
     let totalItems = 0;
 
-    cart.forEach(item => {
+    cart.forEach((item) => {
         totalItems += item.quantity;
     });
 
-    document.querySelectorAll("[data-cart-count]").forEach(badge => {
+    document.querySelectorAll("[data-cart-count]").forEach((badge) => {
         badge.textContent = totalItems;
     });
 }
 
 function addToCart(product) {
     const cart = getCart();
-    const existing = cart.find(item => item.id === product.id);
+    const existing = cart.find((item) => item.id === product.id);
 
     if (existing) {
         existing.quantity += 1;
@@ -175,7 +138,7 @@ function addToCart(product) {
 }
 
 function removeFromCart(productId) {
-    const cart = getCart().filter(item => item.id !== productId);
+    const cart = getCart().filter((item) => item.id !== productId);
     saveCart(cart);
     renderCartPage();
 }
@@ -229,7 +192,7 @@ function renderCartPage() {
         return;
     }
 
-    cart.forEach(item => {
+    cart.forEach((item) => {
         const rowTotal = item.price * item.quantity;
         subtotal += rowTotal;
 
@@ -264,7 +227,7 @@ function renderCartPage() {
 }
 
 function bindAddToCartButtons() {
-    document.querySelectorAll("[data-add-to-cart]").forEach(button => {
+    document.querySelectorAll("[data-add-to-cart]").forEach((button) => {
         button.addEventListener("click", function () {
             addToCart({
                 id: this.dataset.id,
@@ -564,8 +527,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initNavbar();
     initScrollEffects();
     initRevealAnimations();
-    initCursorGlow();
-    initHeroParallax();
     updateCartBadge();
     bindAddToCartButtons();
     renderCartPage();
