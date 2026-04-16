@@ -1,9 +1,7 @@
 const SUPABASE_URL = "https://gwnjdjvsjvvhsgrtitop.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_ccmCgBXPoelvpNLmTErkUw_8taW9HCd";
 
-const supabaseClient = window.supabase && typeof window.supabase.createClient === "function"
-    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 /* NAVBAR */
 function initNavbar() {
@@ -26,14 +24,6 @@ function initNavbar() {
                 navToggle.setAttribute("aria-expanded", "false");
             }
         });
-    });
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 980) {
-            navToggle.classList.remove("is-open");
-            navMenu.classList.remove("is-open");
-            navToggle.setAttribute("aria-expanded", "false");
-        }
     });
 }
 
@@ -262,8 +252,6 @@ async function handleLoginPage() {
 
     clearNotice(notice);
 
-    if (!supabaseClient) return;
-
     const { data: { session } } = await supabaseClient.auth.getSession();
 
     if (session) {
@@ -348,8 +336,6 @@ async function loadProfilePage() {
     if (!form) return;
 
     clearNotice(notice);
-
-    if (!supabaseClient) return;
 
     const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
 
