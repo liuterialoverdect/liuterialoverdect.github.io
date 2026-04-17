@@ -1280,6 +1280,10 @@ body.js-ready .reveal.is-visible {
 
 .hero-visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
 }
 
 .hero-card-premium {
@@ -1292,15 +1296,13 @@ body.js-ready .reveal.is-visible {
 }
 
 .hero-floating-note {
-    position: absolute;
-    right: -16px;
-    bottom: 26px;
+    position: static;
     z-index: 3;
-    width: min(320px, 82%);
+    width: min(320px, 100%);
+    margin-left: 28px;
     padding: 18px 20px;
     border-radius: 22px;
     box-shadow: var(--shadow);
-
 }
 
 .hero-floating-label,
@@ -1564,8 +1566,8 @@ body.js-ready .reveal.is-visible {
     }
 
     .hero-floating-note {
-        position: static;
-        margin-top: 18px;
+        margin-top: 0;
+        margin-left: 0;
         width: 100%;
         animation: none;
     }
