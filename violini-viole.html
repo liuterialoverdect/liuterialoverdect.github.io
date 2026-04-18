@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violini e Viole - Liuteria Lo Verde</title>
+    <meta name="description" content="Violini e viole in bottega: regolazione, manutenzione e restauro eseguiti con attenzione artigianale da Liuteria Lo Verde.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .archi-page {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archi-page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(200, 155, 60, 0.1), transparent 28%),
+                radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.05), transparent 24%);
+            pointer-events: none;
+        }
+
+        .archi-hero {
+            padding: 122px 0 92px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .archi-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            gap: 52px;
+            align-items: center;
+        }
+
+        .archi-hero-copy {
+            position: relative;
+            z-index: 2;
+        }
+
+        .archi-hero-copy h1 {
+            margin: 0 0 22px;
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 0.97;
+            max-width: 760px;
+        }
+
+        .archi-hero-copy .hero-text {
+            max-width: 610px;
+            margin: 0;
+            font-size: 19px;
+            line-height: 1.85;
+            color: var(--text-soft);
+        }
+
+        .archi-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .archi-pill-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(200, 155, 60, 0.24);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .archi-hero-side {
+            position: relative;
+            z-index: 2;
+        }
+
+        .archi-panel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            border: 1px solid rgba(200, 155, 60, 0.22);
+            background:
+                linear-gradient(160deg, rgba(200, 155, 60, 0.12), rgba(255,255,255,0.025) 28%, rgba(255,255,255,0.015) 100%),
+                rgba(20, 20, 20, 0.95);
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+            padding: 34px;
+        }
+
+        .archi-panel::before {
+            content: "";
+            position: absolute;
+            top: -56px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(200, 155, 60, 0.24), transparent 68%);
+            pointer-events: none;
+        }
+
+        .archi-kicker {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(200, 155, 60, 0.1);
+            border: 1px solid rgba(200, 155, 60, 0.2);
+            color: #dbc18a;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        .archi-panel h2 {
+            margin: 0 0 16px;
+            font-size: clamp(30px, 4vw, 54px);
+            line-height: 1.05;
+            max-width: 520px;
+        }
+
+        .archi-panel > p {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.8;
+            max-width: 520px;
+        }
+
+        .archi-panel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .archi-mini-card {
+            min-height: 118px;
+            padding: 16px 16px 14px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .archi-mini-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .archi-mini-card span {
+            display: block;
+            color: var(--text-soft);
+            line-height: 1.65;
+            font-size: 14px;
+        }
+
+        .archi-section {
+            padding: 84px 0;
+            position: relative;
+        }
+
+        .archi-grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .archi-copy h2,
+        .archi-section-title h2,
+        .archi-cta h2 {
+            margin: 0 0 18px;
+            font-size: clamp(34px, 4vw, 52px);
+            line-height: 1.06;
+        }
+
+        .archi-copy p,
+        .archi-section-title p,
+        .archi-service-card p,
+        .archi-feature-card p,
+        .archi-process-copy p,
+        .archi-cta p,
+        .archi-list-card li {
+            color: var(--text-soft);
+            line-height: 1.82;
+        }
+
+        .archi-list-card {
+            border-radius: 24px;
+            border: 1px solid rgba(200, 155, 60, 0.15);
+            background: linear-gradient(180deg, rgba(200,155,60,0.07), rgba(255,255,255,0.02));
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .archi-list-card h3 {
+            margin: 0 0 10px;
+            font-size: 30px;
+            line-height: 1.12;
+        }
+
+        .archi-list-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0;
+        }
+
+        .archi-list-card li {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .archi-list-card li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .archi-soft {
+            background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0));
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .archi-services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .archi-service-card {
+            position: relative;
+            padding: 28px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+            box-shadow: var(--shadow);
+        }
+
+        .archi-service-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            background: rgba(200, 155, 60, 0.1);
+            border: 1px solid rgba(200, 155, 60, 0.2);
+            color: var(--accent-strong);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .archi-service-card h3 {
+            margin: 0 0 12px;
+            font-size: 28px;
+            line-height: 1.08;
+        }
+
+        .archi-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .archi-feature-card {
+            padding: 26px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .archi-feature-card h3 {
+            margin: 0 0 10px;
+            font-size: 30px;
+            line-height: 1.08;
+        }
+
+        .archi-process {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 0.95fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .archi-process-copy {
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.018);
+        }
+
+        .archi-process-copy h2 {
+            margin: 0 0 16px;
+            font-size: clamp(32px, 4vw, 50px);
+            line-height: 1.05;
+        }
+
+        .archi-steps {
+            display: grid;
+            gap: 14px;
+        }
+
+        .archi-step {
+            padding: 18px 18px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(200, 155, 60, 0.16);
+            background: linear-gradient(180deg, rgba(200, 155, 60, 0.08), rgba(255,255,255,0.02));
+        }
+
+        .archi-step strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .archi-step span {
+            display: block;
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .archi-cta {
+            padding: 40px;
+            border-radius: 28px;
+            border: 1px solid rgba(200, 155, 60, 0.18);
+            background:
+                radial-gradient(circle at top right, rgba(200,155,60,0.14), transparent 32%),
+                linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .archi-cta p {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .archi-cta .cta-actions {
+            justify-content: center;
+            margin-top: 26px;
+        }
+
+        @media (max-width: 1080px) {
+            .archi-hero-grid,
+            .archi-grid-2,
+            .archi-process,
+            .archi-services,
+            .archi-feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archi-panel-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .archi-hero {
+                padding: 100px 0 74px;
+            }
+
+            .archi-panel,
+            .archi-list-card,
+            .archi-service-card,
+            .archi-feature-card,
+            .archi-process-copy,
+            .archi-cta {
+                padding: 22px;
+            }
+
+            .archi-panel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archi-hero-copy h1 {
+                font-size: 44px;
+            }
+
+            .archi-copy h2,
+            .archi-section-title h2,
+            .archi-process-copy h2,
+            .archi-cta h2,
+            .archi-panel h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="topbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">Liuteria <span>Lo Verde</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="chi.html">Chi siamo</a>
+            <a href="strumenti.html">Strumenti</a>
+            <a href="violini-viole.html" class="active">Violini e Viole</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
+</header>
+
+<main class="archi-page">
+    <section class="archi-hero">
+        <div class="container archi-hero-grid">
+            <div class="archi-hero-copy">
+                <p class="eyebrow">Strumenti ad arco</p>
+                <h1>Violini e viole tra tradizione, equilibrio e ascolto</h1>
+                <p class="hero-text">
+                    Nella nostra bottega seguiamo violini e viole con la stessa cura riservata a ogni lavorazione artigianale:
+                    costruzione, regolazione, manutenzione e restauro. Ogni intervento nasce dall'osservazione dello strumento,
+                    dall'esperienza della mano e dalle esigenze concrete di chi lo suona.
+                </p>
+                <div class="archi-pill-row">
+                    <span>Regolazione accurata</span>
+                    <span>Manutenzione nel tempo</span>
+                    <span>Restauro rispettoso</span>
+                </div>
+            </div>
+
+            <div class="archi-hero-side">
+                <div class="archi-panel">
+                    <span class="archi-kicker">In bottega</span>
+                    <h2>Ogni strumento viene valutato nella sua identità sonora</h2>
+                    <p>
+                        Non lavoriamo con soluzioni standard: osserviamo struttura, risposta, equilibrio e comfort esecutivo
+                        per trovare un assetto coerente con lo strumento e con il musicista.
+                    </p>
+                    <div class="archi-panel-grid">
+                        <div class="archi-mini-card">
+                            <strong>Set-up</strong>
+                            <span>Ponticello, anima, corde e tastiera regolati con misura.</span>
+                        </div>
+                        <div class="archi-mini-card">
+                            <strong>Restauro</strong>
+                            <span>Interventi conservativi, puliti e rispettosi dell'identità originale.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="archi-section">
+        <div class="container archi-grid-2">
+            <div class="archi-copy">
+                <p class="section-label">Il nostro approccio</p>
+                <h2>Ogni strumento ha un carattere preciso</h2>
+                <p>
+                    Un violino o una viola non si valutano solo per l'estetica. Contano risposta, equilibrio,
+                    facilità di emissione, qualità timbrica e sensazione sotto le dita. Per questo lavoriamo con attenzione
+                    sui dettagli costruttivi e sulle regolazioni, valorizzando le qualità dello strumento senza snaturarlo.
+                </p>
+                <p>
+                    Dalla scelta dei materiali alle finiture, fino agli interventi di manutenzione ordinaria e straordinaria,
+                    l'obiettivo è offrire strumenti affidabili, stabili e pronti a crescere insieme al musicista nel tempo.
+                </p>
+            </div>
+
+            <aside class="archi-list-card">
+                <p class="section-label">Ci occupiamo di</p>
+                <h3>Interventi pensati per studio, conservatorio e attività professionale</h3>
+                <ul>
+                    <li>Violini artigianali</li>
+                    <li>Viole artigianali</li>
+                    <li>Regolazione completa dello strumento</li>
+                    <li>Manutenzione periodica</li>
+                    <li>Restauro conservativo</li>
+                    <li>Consulenza per studio e uso professionale</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <section class="archi-section archi-soft">
+        <div class="container">
+            <div class="archi-section-title narrow-copy">
+                <p class="section-label">Servizi dedicati</p>
+                <h2>Interventi eseguiti con precisione e misura</h2>
+                <p>
+                    Ogni lavorazione viene valutata caso per caso, tenendo conto della struttura dello strumento,
+                    della sua storia e della risposta sonora desiderata.
+                </p>
+            </div>
+
+            <div class="archi-services">
+                <article class="archi-service-card">
+                    <span class="archi-service-index">01</span>
+                    <h3>Set-up e regolazione</h3>
+                    <p>
+                        Controlliamo e regoliamo gli elementi fondamentali per comfort e resa sonora:
+                        ponticello, anima, corde, capotasto, tastiera e assetto generale.
+                    </p>
+                </article>
+
+                <article class="archi-service-card">
+                    <span class="archi-service-index">02</span>
+                    <h3>Manutenzione ordinaria</h3>
+                    <p>
+                        Interveniamo su usura, piccoli assestamenti e necessità periodiche per mantenere
+                        lo strumento stabile, affidabile e piacevole da suonare nel tempo.
+                    </p>
+                </article>
+
+                <article class="archi-service-card">
+                    <span class="archi-service-index">03</span>
+                    <h3>Restauro conservativo</h3>
+                    <p>
+                        Trattiamo con attenzione crepe, distacchi, usure e problemi strutturali,
+                        cercando sempre una soluzione rispettosa dell'identità originale dello strumento.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="archi-section">
+        <div class="container archi-feature-grid">
+            <div class="archi-feature-card">
+                <p class="section-label">Per chi suona</p>
+                <h3>Dal percorso di studio all'attività concertistica</h3>
+                <p>
+                    Seguiamo studenti, insegnanti, appassionati e musicisti che cercano uno strumento ben preparato
+                    e un riferimento affidabile nel tempo. Un buon assetto può cambiare in modo concreto
+                    la facilità di esecuzione e la qualità della risposta sonora.
+                </p>
+            </div>
+
+            <div class="archi-feature-card">
+                <p class="section-label">In bottega</p>
+                <h3>Un confronto diretto, senza soluzioni standard</h3>
+                <p>
+                    Ogni violino e ogni viola richiedono ascolto, osservazione e sensibilità tecnica.
+                    Preferiamo valutare ogni caso con attenzione, così da proporre un intervento davvero adatto
+                    allo strumento e al musicista.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="archi-section archi-soft">
+        <div class="container archi-process">
+            <div class="archi-process-copy">
+                <p class="section-label">Metodo di lavoro</p>
+                <h2>Ascoltare, osservare, intervenire con misura</h2>
+                <p>
+                    Prima di intervenire valutiamo il comportamento dello strumento, la sua risposta sonora e il contesto in cui viene suonato.
+                    Questo ci permette di evitare correzioni standard e di lavorare con coerenza, sia nei piccoli assestamenti sia nei restauri più delicati.
+                </p>
+            </div>
+
+            <div class="archi-steps">
+                <div class="archi-step">
+                    <strong>01 · Valutazione</strong>
+                    <span>Analisi dello stato generale, struttura, assetto e resa sonora.</span>
+                </div>
+                <div class="archi-step">
+                    <strong>02 · Intervento</strong>
+                    <span>Regolazione o restauro eseguiti con attenzione tecnica e sensibilità artigianale.</span>
+                </div>
+                <div class="archi-step">
+                    <strong>03 · Verifica finale</strong>
+                    <span>Controllo dell'equilibrio dello strumento e confronto sulle esigenze esecutive del musicista.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="archi-section">
+        <div class="container archi-cta">
+            <p class="section-label">Contatto</p>
+            <h2>Vuoi maggiori informazioni su violini e viole?</h2>
+            <p>
+                Possiamo aiutarti nella scelta dello strumento, nella regolazione o nella valutazione
+                di un intervento di manutenzione e restauro, con un confronto diretto e senza soluzioni preconfezionate.
+            </p>
+            <div class="cta-actions">
+                <a href="contatti.html" class="btn btn-primary">Contattaci</a>
+                <a href="servizi.html" class="btn btn-secondary">Scopri i servizi</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div>
+            <h3>Liuteria Lo Verde</h3>
+            <p>Tradizione artigianale, cura del dettaglio e attenzione al suono.</p>
+        </div>
+        <div>
+            <p>&copy; 2026 Liuteria Lo Verde. Tutti i diritti riservati.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+function initNavbar() {
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.classList.toggle("is-open");
+        navMenu.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 980) {
+                navToggle.classList.remove("is-open");
+                navMenu.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 980) {
+            navToggle.classList.remove("is-open");
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
+initNavbar();
+</script>
+</body>
+</html>
